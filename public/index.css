@@ -1,0 +1,156 @@
+* {
+  list-style: none;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#banner {
+  text-align: center;
+}
+
+#banner a {
+  color: #000000;
+  z-index: 1;
+  position: relative;
+  /* background-color: whitesmoke; */
+  /* width: 20%; */
+  /* display: inline-block; */
+  /* height: 20%; */
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+aside {
+  width: 30%;
+  background-color: #f0f0f0;
+}
+
+#sidebar {
+  padding: 10px;
+}
+
+#sidebar div {
+  margin-bottom: 10px;
+}
+
+#root {
+  width: 65%;
+  background-color: #fff;
+  padding: 10px;
+}
+
+#currentDate {
+  margin-bottom: 20px;
+}
+
+#title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#content {
+  line-height: 1.6;
+}
+
+#tag {
+  color: #666;
+}
+
+button {
+  margin-top: 20px;
+}
+
+#write > button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+#menu {
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+#menu li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#menu li:last-child {
+  margin-right: 0;
+}
+
+#drop {
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  /* left: 70%; */
+  margin-right: 20%;
+}
+
+#drop li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#drop li:hover {
+  background-color: #ddd;
+}
+
+#contentSelect {
+  display: none;
+}
+#tagSelect {
+  display: none;
+}
+
+header > div:nth-of-type(2) {
+  display: inline-block;
+}
+#recordimg {
+  display: none;
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  z-index: 0;
+  height: 8vh;
+  transform-origin: center;
+}
+#bannerdiv {
+  background-color: whitesmoke;
+  width: 25vw;
+  height: 25vw;
+}
+@media screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+  }
+
+  #root {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
