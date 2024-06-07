@@ -3,6 +3,7 @@ const serverSet = function serverSet(port) {
   const fs = require("fs");
   const path = require("path");
   const qs = require("node:querystring");
+  const fileUtils = require("./fileUtils.js");
   const template = require("./literalTemplate");
   const updateJSON = require("./updateJSON");
   const objectJSON = require("./objectJSON");
