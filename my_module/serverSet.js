@@ -18,9 +18,9 @@ const serverSet = function serverSet(port) {
   const getTime = require("./getTime.js");
   const deleteJSON = require("./deleteJSON.js");
   const searchPOSTTemplate = require("./searchTemplate.js");
-  const titleData = require("../public/titleData.json");
-  const contentData = require("../public/contentData.json");
-  const tagData = require("../public/tagData.json");
+  // const titleData = require("../public/titleData.json");
+  // const contentData = require("../public/contentData.json");
+  // const tagData = require("../public/tagData.json");
 
   /**
    *서버 생성과 실행을 위한 함수
@@ -53,7 +53,7 @@ const serverSet = function serverSet(port) {
     if (err) {
       console.log("오류 : ", err);
     } else {
-      console.log(`https://localhost:${port}`);
+      console.log(`http://localhost:${port}`);
     }
   });
 };
