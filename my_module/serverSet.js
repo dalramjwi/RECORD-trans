@@ -1,4 +1,8 @@
 const serverSet = function serverSet(port) {
+  /**
+   * port 번호를 입력해 server를 실행하는 함수이다.
+   * @param {number} port port 번호
+   */
   const http = require("http");
   const fs = require("fs");
   const path = require("path");
@@ -7,6 +11,7 @@ const serverSet = function serverSet(port) {
   const getMethod = require("./getMethod/getMethod.js");
   const postMethod = require("./postMethod/postMethod.js");
   const nullfavicon = require("./favicon.js");
+  const decodeURI = require("./decodeURI.js");
   const template = require("./literalTemplate");
   const updateJSON = require("./updateJSON");
   const objectJSON = require("./objectJSON");
@@ -18,8 +23,11 @@ const serverSet = function serverSet(port) {
   const contentData = require("../public/contentData.json");
   const tagData = require("../public/tagData.json");
 
-  // //*서버 생성
+  //*서버 생성
   const server = http.createServer((req, res) => {
+    /**
+     *서버 생성과 실행을 위한 함수
+     */
     let url = req.url;
     nullfavicon();
     //*filePath라는 변수를 getFilePath에 req.url을 매개변수로 삽입한 값으로 할당
