@@ -43,7 +43,7 @@ function getMethod(req, res, filePath, contentType) {
       if (err) {
         console.log("오류 발생 : ", err);
       } else {
-        res.writeHead(200, { "Content-Type": contentType });
+        writeHead(res, 200, contentType);
         res.end(data);
       }
     });
