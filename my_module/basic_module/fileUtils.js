@@ -2,7 +2,7 @@
  * 전달받은 url에 따라 파일의 확장자를 분석하고, 이 확장자에 따른 mimeType과 contentType을 할당하기 위한 함수를 가진 객체
  */
 const path = require("path");
-const mimeType = require("./mimeType.js");
+const mimeType = require("../mimeType.js");
 
 //*url에 따른 파일 경로 결정 함수 객체
 const fileUtils = {
