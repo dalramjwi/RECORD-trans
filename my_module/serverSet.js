@@ -28,12 +28,12 @@ const serverSet = function serverSet(port) {
      *서버 생성과 실행을 위한 함수
      */
     let url = req.url;
-    nullfavicon();
-    //*filePath라는 변수를 getFilePath에 req.url을 매개변수로 삽입한 값으로 할당
+    nullfavicon(req);
+    //filePath라는 변수를 getFilePath에 req.url을 매개변수로 삽입한 값으로 할당
     let filePath = fileUtils.getFilePath(url);
-    //*ext 변수는 getFileExtenstion에 filePath를 삽입한 값으로 할당
+    //ext 변수는 getFileExtenstion에 filePath를 삽입한 값으로 할당
     let ext = fileUtils.getFileExtension(filePath);
-    //*contentType 변수는 getContentType에 ext를 삽입한 값으로 할당
+    //contentType 변수는 getContentType에 ext를 삽입한 값으로 할당
     let contentType = fileUtils.getContentType(ext);
 
     if (req.method === "GET") {
