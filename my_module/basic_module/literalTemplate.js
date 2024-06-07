@@ -1,6 +1,6 @@
 // const htmlList = require("./htmlList");
 const fs = require("fs");
-const getCurrentDate = require("./timeCheck");
+const getCurrentDate = require("../timeCheck");
 const template = {
   baseTop: function (name) {
     return `<!DOCTYPE html>

@@ -10,36 +10,36 @@
 const writeHead = require("../basic_module/writeHead");
 const mimeType = require("../mimeType");
 const fsFunction = require("../basic_module/fs");
+const template = require("../basic_module/literalTemplate");
 
 function getMethod(req, res, filePath, contentType) {
   // console.log(req.url);
   if (req.url === "/") {
     writeHead(res, 200, mimeType[".html"]);
     //titleData.json 읽어와 리스트 생성
-    // let path = "./public/jsondata/titleData.json";
-    // fsFunction.read(path, templateList);
+    let path = "./public/jsondata/titleData.json";
+    fsFunction.read(path, templateList);
 
-    // // fs.readFile("./public/jsondata/titleData.json", (err, data) => {
-    // function templateList(data) {
-    //   let decode = decodeURI(data);
-    //   let parse = JSON.parse(decode);
-    //   let list = "<ul>";
-    //   for (let i = parse.length - 1; i > parse.length - 6; i--) {
-    //     if (parse[i] === undefined) {
-    //       list =
-    //         list +
-    //         `<li style="visibility: hidden;"><a href="./public/data/${parse[i]}.html">${parse[i]}</a></li>`;
-    //     } else {
-    //       list =
-    //         list + `<li><a href="./data/${parse[i]}.html">${parse[i]}</a></li>`;
-    //     }
-    //   }
-    //   list = list + "</ul>";
-    //   return list;
-    // }
-    // const htmlList = `${templateList(data)}`;
-    // res.end(template.createTemplate(htmlList));
-    res.end("1");
+    // fs.readFile("./public/jsondata/titleData.json", (err, data) => {
+    function templateList(data) {
+      let decode = decodeURI(data);
+      let parse = JSON.parse(decode);
+      let list = "<ul>";
+      for (let i = parse.length - 1; i > parse.length - 6; i--) {
+        if (parse[i] === undefined) {
+          list =
+            list +
+            `<li style="visibility: hidden;"><a href="./public/data/${parse[i]}.html">${parse[i]}</a></li>`;
+        } else {
+          list =
+            list + `<li><a href="./data/${parse[i]}.html">${parse[i]}</a></li>`;
+        }
+      }
+      list = list + "</ul>";
+      return list;
+    }
+    const htmlList = `${templateList(data)}`;
+    res.end(template.createTemplate(htmlList));
     // });
     //이외에는 자동으로 해석
   } else {
