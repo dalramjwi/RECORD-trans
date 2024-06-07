@@ -7,6 +7,7 @@
  * @description 기본적으로는 public 폴더 안의 요청된 파일을 읽어와 응답하지만,
  * `/` 경로로 요청된 경우에는 html 템플릿을 생성해 응답한다.
  */
+const fs = require("fs");
 const writeHead = require("../basic_module/writeHead");
 const mimeType = require("../mimeType");
 const fsFunction = require("../basic_module/fs");
@@ -18,29 +19,31 @@ function getMethod(req, res, filePath, contentType) {
     writeHead(res, 200, mimeType[".html"]);
     //titleData.json 읽어와 리스트 생성
     let path = "./public/jsondata/titleData.json";
-    fsFunction.read(path, templateList);
-
-    // fs.readFile("./public/jsondata/titleData.json", (err, data) => {
-    function templateList(data) {
-      let decode = decodeURI(data);
-      let parse = JSON.parse(decode);
-      let list = "<ul>";
-      for (let i = parse.length - 1; i > parse.length - 6; i--) {
-        if (parse[i] === undefined) {
-          list =
-            list +
-            `<li style="visibility: hidden;"><a href="./public/data/${parse[i]}.html">${parse[i]}</a></li>`;
-        } else {
-          list =
-            list + `<li><a href="./data/${parse[i]}.html">${parse[i]}</a></li>`;
+    fsFunction.read(path, (data) => {
+      // fs.readFile("./public/jsondata/titleData.json", (err, data) => {
+      function templateList(data) {
+        let decode = decodeURI(data);
+        let parse = JSON.parse(decode);
+        let list = "<ul>";
+        for (let i = parse.length - 1; i > parse.length - 6; i--) {
+          if (parse[i] === undefined) {
+            list =
+              list +
+              `<li style="visibility: hidden;"><a href="./public/data/${parse[i]}.html">${parse[i]}</a></li>`;
+          } else {
+            list =
+              list +
+              `<li><a href="./data/${parse[i]}.html">${parse[i]}</a></li>`;
+          }
         }
+        list = list + "</ul>";
+        return list;
       }
-      list = list + "</ul>";
-      return list;
-    }
-    const htmlList = `${templateList(data)}`;
-    res.end(template.createTemplate(htmlList));
-    // });
+      const htmlList = `${templateList(data)}`;
+      res.end(template.createTemplate(htmlList));
+      // });
+    });
+
     //이외에는 자동으로 해석
   } else {
     fs.readFile(filePath, (err, data) => {
