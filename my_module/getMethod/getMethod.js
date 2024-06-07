@@ -14,7 +14,7 @@ function getMethod(req, res, filePath, contentType) {
   if (req.url === "/") {
     res.writeHead(200, { "Content-Type": mimeType[".html"] });
     //titleData.json 읽어와 리스트 생성
-    fs.readFile("./public/titleData.json", (err, data) => {
+    fs.readFile("./public/jsondata/titleData.json", (err, data) => {
       function templateList(data) {
         let decode = decodeURI(data);
         let parse = JSON.parse(decode);
