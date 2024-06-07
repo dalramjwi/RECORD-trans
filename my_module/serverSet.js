@@ -46,6 +46,11 @@ const serverSet = function serverSet(port) {
   });
 
   server.listen(port, (err) => {
+    /**
+     * port 번호로 server를 실행시키는 실행함수
+     * @param {number} port port 번호
+     * @param {function} err err 콜백 함수이다.
+     */
     if (err) {
       console.log("오류 : ", err);
     } else {
