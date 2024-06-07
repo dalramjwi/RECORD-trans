@@ -15,3 +15,4 @@ const mimeType = {
   ".gif": "image/gif",
   ".mp3": "audio/mpeg",
 };
+module.exports = mimeType;

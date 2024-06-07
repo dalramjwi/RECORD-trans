@@ -3,6 +3,7 @@ const serverSet = function serverSet(port) {
   const fs = require("fs");
   const path = require("path");
   const qs = require("node:querystring");
+  const mimeType = require("./mimeType.js");
   const template = require("./literalTemplate");
   const updateJSON = require("./updateJSON");
   const objectJSON = require("./objectJSON");
@@ -13,18 +14,6 @@ const serverSet = function serverSet(port) {
   const titleData = require("../public/titleData.json");
   const contentData = require("../public/contentData.json");
   const tagData = require("../public/tagData.json");
-  //*문서 형식에 따른 표기
-  const mimeType = {
-    ".html": "text/html; charset=utf-8",
-    ".css": "text/css",
-    ".js": "application/javascript",
-    ".json": "application/json",
-    ".ico": "image/x-icon",
-    ".jpg": "image/jpeg",
-    ".jpeg": "image/jpeg",
-    ".png": "image/png",
-    ".gif": "image/gif",
-  };
 
   //*url에 따른 파일 경로 결정 함수 객체
   const fileUtils = {
