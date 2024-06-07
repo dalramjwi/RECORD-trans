@@ -3,6 +3,10 @@
  */
 const fs = require("fs");
 const fsFunction = {
-  read: function (path, err = (err) => console.log("에러 :", err), data) {},
+  read: function (path, callback, err = (err) => console.log("에러 :", err)) {
+    fs.readFile(`${path}`, (err, data) => {
+      callback(data);
+    });
+  },
 };
 module.exports = fsFunction;
