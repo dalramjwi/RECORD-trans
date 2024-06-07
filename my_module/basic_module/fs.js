@@ -3,9 +3,13 @@
  */
 const fs = require("fs");
 const fsFunction = {
-  read: function (path, callback, err = (err) => console.log("에러 :", err)) {
+  read: function (path, callback) {
     fs.readFile(`${path}`, (err, data) => {
-      callback(data);
+      if (err) {
+        console.error("에러 : ", err);
+      } else {
+        callback(data);
+      }
     });
   },
 };
