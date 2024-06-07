@@ -6,6 +6,7 @@ const serverSet = function serverSet(port) {
   const fileUtils = require("./fileUtils.js");
   const getMethod = require("./getMethod/getMethod.js");
   const postMethod = require("./postMethod/postMethod.js");
+  const nullfavicon = require("./favicon.js");
   const template = require("./literalTemplate");
   const updateJSON = require("./updateJSON");
   const objectJSON = require("./objectJSON");
@@ -20,7 +21,7 @@ const serverSet = function serverSet(port) {
   // //*서버 생성
   const server = http.createServer((req, res) => {
     let url = req.url;
-    if (req.url === "/favicon.ico") return;
+    nullfavicon();
     //*filePath라는 변수를 getFilePath에 req.url을 매개변수로 삽입한 값으로 할당
     let filePath = fileUtils.getFilePath(url);
     //*ext 변수는 getFileExtenstion에 filePath를 삽입한 값으로 할당
