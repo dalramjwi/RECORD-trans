@@ -11,7 +11,6 @@ const serverSet = function serverSet(port) {
   const getMethod = require("./getMethod/getMethod.js");
   const postMethod = require("./postMethod/postMethod.js");
   const nullfavicon = require("./favicon.js");
-  const decodeURI = require("./decodeURI.js");
   const template = require("./literalTemplate");
   const updateJSON = require("./updateJSON");
   const objectJSON = require("./objectJSON");
