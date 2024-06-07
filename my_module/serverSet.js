@@ -6,6 +6,7 @@ const serverSet = function serverSet(port) {
   const fileUtils = require("./fileUtils.js");
   const getMethod = require("./getMethod/getMethod.js");
   const postMethod = require("./postMethod/postMethod.js");
+  const listen = require("./serverListen.js");
   const template = require("./literalTemplate");
   const updateJSON = require("./updateJSON");
   const objectJSON = require("./objectJSON");
@@ -36,14 +37,14 @@ const serverSet = function serverSet(port) {
       postMethod(req, res);
     }
   });
-
-  server.listen(port, (err) => {
-    if (err) {
-      console.log("오류:", err);
-    } else {
-      console.log(`Server is running on port ${port}`);
-    }
-  });
+  listen(port);
+  // server.listen(port, (err) => {
+  //   if (err) {
+  //     console.log("오류:", err);
+  //   } else {
+  //     console.log(`Server is running on port ${port}`);
+  //   }
+  // });
 };
 
 //*매개변수 port 작성법
