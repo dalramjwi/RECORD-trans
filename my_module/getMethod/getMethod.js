@@ -47,14 +47,18 @@ function getMethod(req, res, filePath, contentType) {
 
     //이외에는 자동으로 해석
   } else {
-    fs.readFile(filePath, (err, data) => {
-      if (err) {
-        logErr(err);
-      } else {
-        writeHead(res, 200, contentType);
-        res.end(data);
-      }
+    fsFunction.read(filePath, (data) => {
+      writeHead(res, 200, contentType);
+      res.end(data);
     });
+    // fs.readFile(filePath, (err, data) => {
+    //   if (err) {
+    //     logErr(err);
+    //   } else {
+    //     writeHead(res, 200, contentType);
+    //     res.end(data);
+    //   }
+    // });
   }
 }
 module.exports = getMethod;
