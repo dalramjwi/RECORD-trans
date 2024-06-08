@@ -10,6 +10,7 @@ const serverSet = function serverSet(port) {
   const fileUtils = require("./basic_module/fileUtils.js");
   const getMethod = require("./getMethod/getMethod.js");
   const postMethod = require("./postMethod/postMethod.js");
+  const logErr = require("./basic_module/logErr.js");
   const template = require("./basic_module/literalTemplate.js");
   const updateJSON = require("./updateJSON");
   const objectJSON = require("./objectJSON");
@@ -22,10 +23,15 @@ const serverSet = function serverSet(port) {
   // const tagData = require("../public/tagData.json");
 
   /**
-   *서버 생성과 실행을 위한 함수
+   * 서버를 생성하고 요청을 처리하는 함수
+   * @param {Object} req - 요청 객체
+   * @param {Object} res - 응답 객체
    */
+
   const server = http.createServer((req, res) => {
+    // 요청 url url에 할당
     let url = req.url;
+    //favicon 요청 무시
     if (req.url === "/favicon.ico") return;
     //filePath라는 변수를 getFilePath에 req.url을 매개변수로 삽입한 값으로 할당
     let filePath = fileUtils.getFilePath(url);
@@ -34,11 +40,16 @@ const serverSet = function serverSet(port) {
     //contentType 변수는 getContentType에 ext를 삽입한 값으로 할당
     let contentType = fileUtils.getContentType(ext);
 
+    // GET 요청 처리
     if (req.method === "GET") {
+      // 파일 경로를 디코딩
       filePath = decodeURI(filePath);
+      // getMethod로 요청 처리
       getMethod(req, res, filePath, contentType);
     } else if (req.method === "POST") {
+      // 파일 경로를 디코딩
       filePath = decodeURI(filePath);
+      // postMethod로 요청 처리
       postMethod(req, res);
     }
   });
@@ -50,7 +61,7 @@ const serverSet = function serverSet(port) {
    */
   server.listen(port, (err) => {
     if (err) {
-      console.log("오류 : ", err);
+      logErr(err);
     } else {
       console.log(`http://localhost:${port}`);
     }
