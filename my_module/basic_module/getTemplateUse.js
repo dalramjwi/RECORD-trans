@@ -1,6 +1,9 @@
+const decodeAndParse = require("./decodeAndParse");
+
 function templateList(data) {
   let decode = decodeURI(data);
   let parse = JSON.parse(decode);
+  decodeAndParse(data);
   let list = "<ul>";
   for (let i = parse.length - 1; i > parse.length - 6; i--) {
     if (parse[i] === undefined) {
