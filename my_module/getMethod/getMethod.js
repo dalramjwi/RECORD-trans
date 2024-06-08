@@ -12,6 +12,7 @@ const writeHead = require("../basic_module/writeHead");
 const mimeType = require("../mimeType");
 const fsFunction = require("../basic_module/fs");
 const template = require("../basic_module/literalTemplate");
+const templateList = require("../basic_module/getTemplateLIst");
 
 function getMethod(req, res, filePath, contentType) {
   // console.log(req.url);
@@ -21,25 +22,7 @@ function getMethod(req, res, filePath, contentType) {
     let path = "./public/jsondata/titleData.json";
     fsFunction.read(path, (data) => {
       // fs.readFile("./public/jsondata/titleData.json", (err, data) => {
-      function templateList(data) {
-        let decode = decodeURI(data);
-        let parse = JSON.parse(decode);
-        let list = "<ul>";
-        for (let i = parse.length - 1; i > parse.length - 6; i--) {
-          if (parse[i] === undefined) {
-            list =
-              list +
-              `<li style="visibility: hidden;"><a href="./public/data/${parse[i]}.html">${parse[i]}</a></li>`;
-          } else {
-            list =
-              list +
-              `<li><a href="./data/${parse[i]}.html">${parse[i]}</a></li>`;
-          }
-        }
-        list = list + "</ul>";
-        return list;
-      }
-      const htmlList = `${templateList(data)}`;
+      const htmlList = templateList(data);
       res.end(template.createTemplate(htmlList));
       // });
     });
