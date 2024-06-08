@@ -1,5 +1,5 @@
-const decodeAndParse = require("./decodeAndParse");
-const reverseList = require("./reverseList");
+const decodeAndParse = require("../basic_module/decodeAndParse");
+const reverseList = require("../basic_module/reverseList");
 /**
  *decodeAndParse된 data로 역 순 리스트를 생성하는 함수이다.
  * @param {string} data - 서버로부터 전송받은 데이터

@@ -12,7 +12,7 @@ const writeHead = require("../basic_module/writeHead");
 const mimeType = require("../mimeType");
 const fsFunction = require("../basic_module/fs");
 const template = require("../basic_module/literalTemplate");
-const templateList = require("../basic_module/getTemplateLIst");
+const templateList = require("./getTemplateLIst");
 const makePath = require("../basic_module/makePath");
 
 function getMethod(req, res, filePath, contentType) {
