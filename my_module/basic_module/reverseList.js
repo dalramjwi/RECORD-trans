@@ -16,3 +16,4 @@ function reverseList(array) {
   list += "</ul>";
   return list;
 }
+module.exports = reverseList;
