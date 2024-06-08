@@ -28,8 +28,6 @@ const serverSet = function serverSet(port) {
   const server = http.createServer((req, res) => {
     let url = req.url;
     if (req.url === "/favicon.ico") return;
-
-    // nullfavicon(req, res);
     //filePath라는 변수를 getFilePath에 req.url을 매개변수로 삽입한 값으로 할당
     let filePath = fileUtils.getFilePath(url);
     //ext 변수는 getFileExtenstion에 filePath를 삽입한 값으로 할당
