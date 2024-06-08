@@ -12,6 +12,7 @@ const writeHead = require("../basic_module/writeHead");
 const mimeType = require("../mimeType");
 const fsFunction = require("../basic_module/fs");
 const template = require("../basic_module/literalTemplate");
+const logErr = require("../basic_module/logErr");
 
 function getMethod(req, res, filePath, contentType) {
   // console.log(req.url);
@@ -48,7 +49,7 @@ function getMethod(req, res, filePath, contentType) {
   } else {
     fs.readFile(filePath, (err, data) => {
       if (err) {
-        console.log("오류 발생 : ", err);
+        logErr(err);
       } else {
         writeHead(res, 200, contentType);
         res.end(data);
