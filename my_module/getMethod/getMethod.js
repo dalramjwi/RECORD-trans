@@ -12,7 +12,6 @@ const writeHead = require("../basic_module/writeHead");
 const mimeType = require("../mimeType");
 const fsFunction = require("../basic_module/fs");
 const template = require("../basic_module/literalTemplate");
-const logErr = require("../basic_module/logErr");
 
 function getMethod(req, res, filePath, contentType) {
   // console.log(req.url);
