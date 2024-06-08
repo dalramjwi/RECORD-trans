@@ -10,7 +10,6 @@ const serverSet = function serverSet(port) {
   const fileUtils = require("./basic_module/fileUtils.js");
   const getMethod = require("./getMethod/getMethod.js");
   const postMethod = require("./postMethod/postMethod.js");
-  const nullfavicon = require("./favicon.js");
   const template = require("./basic_module/literalTemplate.js");
   const updateJSON = require("./updateJSON");
   const objectJSON = require("./objectJSON");
