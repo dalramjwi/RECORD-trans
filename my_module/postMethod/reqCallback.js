@@ -48,3 +48,4 @@ const reqCallback = {
     });
   },
 };
+module.exports = reqCallback;
