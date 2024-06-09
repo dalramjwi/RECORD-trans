@@ -5,7 +5,6 @@
  * @param {any} dataname 삭제할 데이터
  */
 
-const decodeAndParse = require("../basic_module/decodeAndParse");
 const fsFunction = require("../basic_module/fsFunction");
 const makePath = require("../basic_module/makePath");
 
