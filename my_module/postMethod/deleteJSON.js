@@ -1,20 +1,27 @@
+/**
+ * json 파일의 배열에서 특정 요소를 삭제하는 함수
+ *
+ * @param {string} datatype 업데이트 할 데이터 파일 제목
+ * @param {any} dataname 삭제할 데이터
+ */
+
+const decodeAndParse = require("../basic_module/decodeAndParse");
+const fsFunction = require("../basic_module/fsFunction");
+const makePath = require("../basic_module/makePath");
+
 const deleteJSON = function (datatype, dataname) {
-  const fs = require("fs");
-  fs.readFile(`./public/${datatype}Data.json`, (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      let parse = JSON.parse(data);
-      for (let i = 0; i < parse.length; i++) {
-        if (parse[i] === `${dataname}`) {
-          parse.splice(i, 1);
-          parse = JSON.stringify(parse);
-          fs.writeFile(
-            `./public/${datatype}Data.json`,
-            `${parse}`,
-            (err, data) => {}
-          );
-        }
+  const readPath = makePath.publicFolderPath(
+    "jsondata",
+    `${datatype}Data`,
+    "json"
+  );
+  fsFunction.read(readPath, (data) => {
+    let parse = decodeAndParse(data);
+    for (let i = 0; i < parse.length; i++) {
+      if (parse[i] === `${dataname}`) {
+        parse.splice(i, 1);
+        parse = JSON.stringify(parse);
+        fsFunction.write(readPath, parse);
       }
     }
   });
