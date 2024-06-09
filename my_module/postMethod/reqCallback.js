@@ -32,6 +32,8 @@ const reqCallback = {
       "titleData",
       "json"
     );
+    let htmlPath = readPath.publicDataPath();
+
     fsFunction.read(fsreadPath, (data) => {
       let parse = decodeAndParse(data);
       if (parse.includes(title)) {
@@ -40,7 +42,7 @@ const reqCallback = {
       } else {
         //전송된 데이터로 html 생성
         fsFunction.write(
-          makePath.publicPath(`${title}`, "html"),
+          `${htmlPath}/${title}.html`,
           template.htmlTempalte(title, content, tag)
         );
         //전송받은 POST 데이터로 JSON DB 업데이트
@@ -57,6 +59,14 @@ const reqCallback = {
   callbackSak: function (req, res, body) {
     let qparse = parseQsBody(body);
     let refereName = refererUse(req);
+    let dirPath = readPath.publicDataPath();
+    fsFunction.readDir(dirPath, (data) => {
+      data.forEach((item) => {
+        if (item === refereName) {
+          fsFunction.read(makePath.publicPath(`${title}`, "html"));
+        }
+      });
+    });
   },
 };
 module.exports = reqCallback;
