@@ -84,9 +84,9 @@ const reqCallback = {
                   let title = data.title;
                   let content = data.content;
                   let tag = data.tag;
+                  deleteJSON("title", title);
                   deleteJSON("content", content);
                   deleteJSON("tag", tag);
-                  deleteJSON("title", title);
                   fsFunction.unlink(`${dirPath}/${refereName}`);
                 }
               }
