@@ -3,6 +3,7 @@ const parseQsBody = require("./parseqsBody");
 const readPath = require("../basic_module/readPath");
 const fsFunction = require("../basic_module/fs");
 const makePath = require("../basic_module/makePath");
+const decodeAndParse = require("../basic_module/decodeAndParse");
 
 /**
  * reqFunctionSet의 콜백 함수로 사용되기 위한 함수의 모음 객체다.
@@ -25,10 +26,7 @@ const reqCallback = {
       "json"
     );
     fsFunction.read(fsreadPath, (data) => {
-      //한글이나 특수 문자 등이 포함되어 있는 경우 해독을 위한 decode 사용
-      let decode = decodeURI(data);
-      //json 파일을 읽어오기에 JSON.parse 실행
-      let parse = JSON.parse(decode);
+      let parse = decodeAndParse(data);
       if (parse.includes(title)) {
         res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
         res.end(template.alertMakeTemplate(title));
