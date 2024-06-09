@@ -14,4 +14,3 @@ const readPath = {
   },
 };
 module.exports = readPath;
-console.log(readPath.publicDataPath());
