@@ -1,6 +1,6 @@
-const readPath = require("../basic_module/readPath");
 const parseJsonBody = require("./parseJsonBody");
 const parseQsBody = require("./parseqsBody");
+const readPath = require("../basic_module/readPath");
 
 /**
  * reqFunctionSet의 콜백 함수로 사용되기 위한 함수의 모음 객체다.
@@ -16,12 +16,6 @@ const reqCallback = {
     const title = qparse.title;
     const content = qparse.content;
     const tag = qparse.tag;
-
-    //파일 위치 변수 지정
-    // const writeJsonFilePath = path.join(
-    //   __dirname,
-    //   `../public/data/${qparse.title}.json`
-    // );
     const publicDataPath = readPath.publicDataPath;
     fs.readFile("./public/titleData.json", (err, data) => {
       let decode = decodeURI(data);
