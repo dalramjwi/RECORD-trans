@@ -6,12 +6,12 @@
 const decodeAndParse = require("../basic_module/decodeAndParse");
 const fsFunction = require("../basic_module/fsFunction");
 const makePath = require("../basic_module/makePath");
-
 const deleteObjectJSON = function (dataname) {
-  const readPath = makePath.publicFolderPath("jsondata", `objectData`, "json");
+  const readPath = makePath.publicFolderPath("jsondata", "objectData", "json");
 
   fsFunction.read(readPath, (data) => {
     let parse = decodeAndParse(data);
+    console.log(parse);
     // 객체의 세가지 요소가 일치할 경우에만...
     let updatedArray = parse.filter((item) => {
       return !(
@@ -20,6 +20,7 @@ const deleteObjectJSON = function (dataname) {
         item.text.tag === dataname.tag
       );
     });
+    console.log(updatedArray);
     fsFunction.write(readPath, JSON.stringify(updatedArray));
   });
 };
