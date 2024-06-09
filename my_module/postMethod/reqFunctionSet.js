@@ -1,8 +1,11 @@
 /**
  * reqUrlSet의 콜백 함수로 사용되기 위한 객체의 모음이다.
  */
+const reqBaseEvent = require("./reqBaseEvent");
+
 const reqFunctionSet = {
   functionWrite: function (req, res) {
+    reqBaseEvent(req, res, callback);
     let body = "";
     req.on("data", (data) => {
       body += data;
