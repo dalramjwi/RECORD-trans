@@ -29,5 +29,37 @@ const reqFunctionSet = {
   functionSearchTitle: function (req, res) {
     reqBaseEvent(req, res, reqCallback.callbackSearchTitle);
   },
+  /**
+   * url이 searchcontent일 때 요청 처리 함수
+   * @param {object} req 요청 객체
+   * @param {object} res 응답 객체
+   */
+  functionSearchContent: function (req, res) {
+    reqBaseEvent(req, res, reqCallback.callbackSearchContent);
+  },
+  /**
+   * url이 searchtag일 때 요청 처리 함수
+   * @param {object} req 요청 객체
+   * @param {object} res 응답 객체
+   */
+  functionSearchTag: function (req, res) {
+    reqBaseEvent(req, res, reqCallback.callbackSearchTag);
+  },
+  /**
+   * url이 data/su일 때 요청 처리 함수
+   * @param {object} req 요청 객체
+   * @param {object} res 응답 객체
+   */
+  functionSu: function (req, res) {
+    reqBaseEvent(req, res, reqCallback.callbackSu);
+  },
+  /**
+   * url이 suwrite일 때 요청 처리 함수
+   * @param {object} req 요청 객체
+   * @param {object} res 응답 객체
+   */
+  functionSuWrite: function (req, res) {
+    reqBaseEvent(req, res, reqCallback.callbackSuWrite);
+  },
 };
 module.exports = reqFunctionSet;

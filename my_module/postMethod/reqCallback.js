@@ -104,5 +104,9 @@ const reqCallback = {
    * @param {string} body POST 방식으로 전송된 데이터
    */
   callbackSearchTitle: function (req, res, body) {},
+  callbackSearchContent: function (req, res, body) {},
+  callbackSearchTag: function (req, res, body) {},
+  callbackSu: function (req, res, body) {},
+  callbackSuWrite: function (req, res, body) {},
 };
 module.exports = reqCallback;

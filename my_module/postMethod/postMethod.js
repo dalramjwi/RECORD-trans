@@ -11,6 +11,10 @@ function postMethod(req, res) {
   reqUrlSet(req, res, "write", reqFunctionSet.functionWrite);
   reqUrlSet(req, res, "data/sak", reqFunctionSet.functionSak);
   reqUrlSet(req, res, "searchtitle", reqFunctionSet.functionSearchTitle);
+  reqUrlSet(req, res, "searchcontent", reqFunctionSet.functionSearchContent);
+  reqUrlSet(req, res, "searchtag", reqFunctionSet.functionSearchTag);
+  reqUrlSet(req, res, "data/su", reqFunctionSet.functionSu);
+  reqUrlSet(req, res, "suwrite", reqFunctionSet.functionSuWrite);
 
   if (req.url === "/searchtitle") {
     let body = "";
