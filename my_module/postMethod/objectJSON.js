@@ -5,25 +5,25 @@
  * @param {string} time 추가할 작성 시간
  */
 
+const decodeAndParse = require("../basic_module/decodeAndParse");
+const fsFunction = require("../basic_module/fsFunction");
+const makePath = require("../basic_module/makePath");
+
 const objectJSON = function (datatype, dataname, time) {
-  const fs = require("fs");
-  fs.readFile(`./public/${datatype}Data.json`, (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      let parse = JSON.parse(data);
-      let object = {
-        time: time,
-        text: dataname,
-      };
-      parse.push(object);
-      let parsetitlePush = JSON.stringify(parse);
-      fs.writeFile(
-        `./public/${datatype}Data.json`,
-        `${parsetitlePush}`,
-        (err, data) => {}
-      );
-    }
+  const readPath = makePath.publicFolderPath(
+    "jsondata",
+    `${datatype}Data`,
+    "json"
+  );
+  fsFunction.read(readPath, (data) => {
+    let parse = decodeAndParse(data);
+    let object = {
+      time: time,
+      text: dataname,
+    };
+    parse.push(object);
+    let updatedData = JSON.stringify(parse);
+    fsFunction.write(readPath, updatedData);
   });
 };
 
