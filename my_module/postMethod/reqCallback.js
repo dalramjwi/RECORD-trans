@@ -6,6 +6,8 @@ const makePath = require("../basic_module/makePath");
 const decodeAndParse = require("../basic_module/decodeAndParse");
 const writeHead = require("../basic_module/writeHead");
 const mimeType = require("../mimeType");
+const template = require("../basic_module/literalTemplate");
+const writeHead_302 = require("../basic_module/writeHead_302");
 
 /**
  * reqFunctionSet의 콜백 함수로 사용되기 위한 함수의 모음 객체다.
@@ -48,7 +50,7 @@ const reqCallback = {
         updateJSON("tag", tag);
         //object 용 JSON 제작
         objectJSON("object", qparse, getCurrentDate());
-        res.writeHead(302, { Location: "/" });
+        writeHead_302(res);
         res.end();
       }
     });
