@@ -10,7 +10,7 @@ const reqBaseEvent = function (req, res, callback) {
     body += data;
   });
   req.on("end", () => {
-    callback(res, body);
+    callback(req, res, body);
   });
 };
 module.exports = reqBaseEvent;

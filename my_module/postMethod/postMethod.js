@@ -13,10 +13,6 @@ function postMethod(req, res) {
 
   //삭제 실행
   if (req.url === "/data/sak") {
-    let body = "";
-    req.on("data", (data) => {
-      body += data.toString();
-    });
     req.on("end", () => {
       //data parse
       let qparse = qs.parse(body);

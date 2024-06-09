@@ -10,16 +10,18 @@ const writeHead_302 = require("../basic_module/writeHead_302");
 const updateJSON = require("./updateJSON");
 const objectJSON = require("./objectJSON");
 const getCurrentDate = require("./timeCheck");
+const refererUse = require("../basic_module/refererUse");
 
 /**
  * reqFunctionSet의 콜백 함수로 사용되기 위한 함수의 모음 객체다.
  */
 const reqCallback = {
   /**
+   * @param {object} req 요청 객체
    * @param {object} res 응답 객체
    * @param {string} body post 방식으로 데이터를 body 변수에 추가한 값
    */
-  callbackWrite: function (res, body) {
+  callbackWrite: function (req, res, body) {
     //data parse
     let qparse = parseQsBody(body);
     const title = qparse.title;
@@ -52,6 +54,9 @@ const reqCallback = {
       }
     });
   },
-  callbackSak: function (res, body) {},
+  callbackSak: function (req, res, body) {
+    let qparse = parseQsBody(body);
+    let refereName = refererUse(req);
+  },
 };
 module.exports = reqCallback;
