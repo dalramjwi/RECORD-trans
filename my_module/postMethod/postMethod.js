@@ -10,6 +10,7 @@ const reqFunctionSet = require("./reqFunctionSet");
 function postMethod(req, res) {
   reqUrlSet(req, res, "write", reqFunctionSet.functionWrite);
   reqUrlSet(req, res, "data/sak", reqFunctionSet.functionSak);
+  reqUrlSet(req, res, "searchtitle", reqFunctionSet.functionSearchTitle);
 
   if (req.url === "/searchtitle") {
     let body = "";
