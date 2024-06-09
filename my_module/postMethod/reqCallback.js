@@ -3,8 +3,7 @@
  */
 const reqCallback = {
   /**
-   *
-   * @param {*} body
+   * @param {string} body post 방식으로 데이터를 body 변수에 추가한 값
    */
   callbackWrite: function (body) {
     //data parse
