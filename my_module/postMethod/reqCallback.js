@@ -85,30 +85,9 @@ const reqCallback = {
                   let title = data.title;
                   let content = data.content;
                   let tag = data.tag;
-                  // deleteJSON("title", title);
-                  // deleteJSON("content", content);
-                  // deleteJSON("tag", tag);
-                  // const deleteObjectJSON = function (dataname) {
-                  //   const readPath = makePath.publicFolderPath(
-                  //     "jsondata",
-                  //     "objectData",
-                  //     "json"
-                  //   );
-
-                  //   fsFunction.read(readPath, (data) => {
-                  //     let parse = decodeAndParse(data);
-                  //     // 객체의 세가지 요소가 일치할 경우에만...
-                  //     let updatedArray = parse.filter((item) => {
-                  //       return !(
-                  //         item.text.title === dataname.title &&
-                  //         item.text.content === dataname.content &&
-                  //         item.text.tag === dataname.tag
-                  //       );
-                  //     });
-                  //     fsFunction.write(readPath, JSON.stringify(updatedArray));
-                  //   });
-                  // };
-                  deleteObjectJSON(data);
+                  deleteJSON("title", title);
+                  deleteJSON("content", content);
+                  deleteJSON("tag", tag);
                 }
               }
               fsFunction.unlink(`${dirPath}/${refereName}`);
@@ -137,20 +116,25 @@ const reqCallback = {
       let parse = decodeAndParse(data);
       let searchResults = [];
       // 검색어와 일치하는 제목을 찾아서 searchResults 배열에 추가
-      parse.forEach((item) => {
-        if (item.includes(searchTitle)) {
-          searchResults.push(item);
+      for (let i = 0; i < parse.length; i++) {
+        if (parse[i].text.title === search) {
+          searchResults.push(parse[i].text.title);
         }
-      });
+      }
       // 검색 결과에 따라 응답 처리
       if (searchResults.length > 0) {
         // 검색 결과가 있을 경우 검색된 제목들을 HTML 리스트로 만들어 응답
-        let list = "<ul>";
-        searchResults.forEach((title) => {
-          list += `<li><a href="./data/${title}.html">${title}</a></li>`;
-        });
-        list += "</ul>";
-        res.end(template.searchTemplate(list));
+        function templateList() {
+          let list = "<ul>";
+          for (let i = 0; i < searchResults.length; i++) {
+            list =
+              list +
+              `<li><a href="./data/${searchResults[i]}.html">${searchResults[i]}</a></li>`;
+          }
+          list = list + "</ul>";
+          return list;
+        }
+        res.end(template.searchTemplate(templateList()));
       } else {
         res.end(template.alertFindTemplate(searchTitle));
       }
@@ -168,22 +152,25 @@ const reqCallback = {
       let parse = decodeAndParse(data);
       let searchResults = [];
       // 검색어와 일치하는 content를 가진 title을 찾아서 searchResults 배열에 추가
-      parse.forEach((item) => {
-        let text = item.text;
-        if (text.content === search) {
-          searchResults.push(text.title);
+      for (let i = 0; i < parse.length; i++) {
+        if (parse[i].text.content === search) {
+          searchResults.push(parse[i].text.title);
         }
-      });
-
+      }
       // 검색 결과에 따라 응답 처리
       if (searchResults.length > 0) {
         // 검색 결과가 있을 경우: 검색된 제목들을 HTML 리스트로 만들어 응답
-        let list = "<ul>";
-        searchResults.forEach((title) => {
-          list += `<li><a href="./data/${title}.html">${title}</a></li>`;
-        });
-        list += "</ul>";
-        res.end(template.searchTemplate(list));
+        function templateList() {
+          let list = "<ul>";
+          for (let i = 0; i < searchResults.length; i++) {
+            list =
+              list +
+              `<li><a href="./data/${searchResults[i]}.html">${searchResults[i]}</a></li>`;
+          }
+          list = list + "</ul>";
+          return list;
+        }
+        res.end(template.searchTemplate(templateList()));
       } else {
         res.end(template.alertFindTemplate(search));
       }

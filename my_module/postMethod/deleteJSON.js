@@ -16,13 +16,8 @@ const deleteJSON = function (datatype, dataname) {
   );
   fsFunction.read(readPath, (data) => {
     let parse = JSON.parse(data);
-    console.log(parse);
     for (let i = 0; i < parse.length; i++) {
-      if (
-        parse[i].title === dataname.title &&
-        parse[i].content === dataname.content &&
-        parse[i].tag === dataname.tag
-      ) {
+      if (parse[i] === `${dataname}`) {
         parse.splice(i, 1);
         parse = JSON.stringify(parse);
         fsFunction.write(readPath, parse);

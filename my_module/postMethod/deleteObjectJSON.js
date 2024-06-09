@@ -7,11 +7,12 @@ const decodeAndParse = require("../basic_module/decodeAndParse");
 const fsFunction = require("../basic_module/fsFunction");
 const makePath = require("../basic_module/makePath");
 const deleteJSON = require("./deleteJSON");
+
 const deleteObjectJSON = function (dataname) {
   const readPath = makePath.publicFolderPath("jsondata", "objectData", "json");
 
   fsFunction.read(readPath, (data) => {
-    let parse = decodeAndParse(data);
+    let parse = JSON.parse(data);
     // 객체의 세가지 요소가 일치할 경우에만...
     let updatedArray = parse.filter((item) => {
       return !(
@@ -21,11 +22,11 @@ const deleteObjectJSON = function (dataname) {
       );
     });
     fsFunction.write(readPath, JSON.stringify(updatedArray));
-    // object, tag, title, content 데이터 삭제
-    deleteJSON("object", dataname);
-    deleteJSON("tag", dataname);
-    deleteJSON("title", dataname);
-    deleteJSON("content", dataname);
+    // // object, tag, title, content 데이터 삭제
+    // deleteJSON("object", dataname);
+    // deleteJSON("tag", dataname);
+    // deleteJSON("title", dataname);
+    // deleteJSON("content", dataname);
   });
 };
 
