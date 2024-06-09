@@ -5,6 +5,7 @@ const fsFunction = require("../basic_module/fs");
 const makePath = require("../basic_module/makePath");
 const decodeAndParse = require("../basic_module/decodeAndParse");
 const writeHead = require("../basic_module/writeHead");
+const mimeType = require("../mimeType");
 
 /**
  * reqFunctionSet의 콜백 함수로 사용되기 위한 함수의 모음 객체다.
@@ -30,8 +31,7 @@ const reqCallback = {
     fsFunction.read(fsreadPath, (data) => {
       let parse = decodeAndParse(data);
       if (parse.includes(title)) {
-        // writeHead(res,200, )
-        res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
+        writeHead(res, 200, mimeType[".html"]);
         res.end(template.alertMakeTemplate(title));
       } else {
         //전송된 데이터로 html 생성
