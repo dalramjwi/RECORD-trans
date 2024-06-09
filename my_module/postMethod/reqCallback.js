@@ -1,4 +1,3 @@
-const parseJsonBody = require("./parseJsonBody");
 const parseQsBody = require("./parseqsBody");
 const readPath = require("../basic_module/readPath");
 const fsFunction = require("../basic_module/fsFunction");
@@ -23,7 +22,6 @@ const reqCallback = {
   callbackWrite: function (res, body) {
     //data parse
     let qparse = parseQsBody(body);
-    // let jparse = parseJsonBody(qparse);
     const title = qparse.title;
     const content = qparse.content;
     const tag = qparse.tag;

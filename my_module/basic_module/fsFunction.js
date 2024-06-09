@@ -23,8 +23,6 @@ const fsFunction = {
     fs.writeFile(`${path}`, data, (err) => {
       if (err) {
         logErr(err);
-      } else {
-        console.log("예외 에러 발생");
       }
     });
   },
