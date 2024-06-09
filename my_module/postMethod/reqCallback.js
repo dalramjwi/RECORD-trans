@@ -1,7 +1,7 @@
 const parseJsonBody = require("./parseJsonBody");
 const parseQsBody = require("./parseqsBody");
 const readPath = require("../basic_module/readPath");
-const fsFunction = require("../basic_module/fs");
+const fsFunction = require("../basic_module/fsFunction");
 const makePath = require("../basic_module/makePath");
 const decodeAndParse = require("../basic_module/decodeAndParse");
 const writeHead = require("../basic_module/writeHead");
@@ -41,7 +41,7 @@ const reqCallback = {
       } else {
         //전송된 데이터로 html 생성
         fsFunction.write(
-          `${publicDataPath}/${title}.html`,
+          makePath.publicPath(`${title}`, "html"),
           template.htmlTempalte(title, content, tag)
         );
         //전송받은 POST 데이터로 JSON DB 업데이트
