@@ -3,7 +3,7 @@ const fsFunction = require("../basic_module/fsFunction");
 const makePath = require("../basic_module/makePath");
 
 /**
- * JSON file 전송받은 데이터로 update 하는 함수
+ * JSON file 전송받은 데이터로 각 각의 파일 update 하는 함수
  * @param {string} datatype 업데이트 할 데이터 파일 제목
  * @param {any} dataname 추가할 데이터
  */
