@@ -4,15 +4,17 @@ const readPath = require("../basic_module/readPath");
 const fsFunction = require("../basic_module/fs");
 const makePath = require("../basic_module/makePath");
 const decodeAndParse = require("../basic_module/decodeAndParse");
+const writeHead = require("../basic_module/writeHead");
 
 /**
  * reqFunctionSet의 콜백 함수로 사용되기 위한 함수의 모음 객체다.
  */
 const reqCallback = {
   /**
+   * @param {object} res 응답 객체
    * @param {string} body post 방식으로 데이터를 body 변수에 추가한 값
    */
-  callbackWrite: function (body) {
+  callbackWrite: function (res, body) {
     //data parse
     let qparse = parseQsBody(body);
     // let jparse = parseJsonBody(qparse);
@@ -28,6 +30,7 @@ const reqCallback = {
     fsFunction.read(fsreadPath, (data) => {
       let parse = decodeAndParse(data);
       if (parse.includes(title)) {
+        // writeHead(res,200, )
         res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
         res.end(template.alertMakeTemplate(title));
       } else {
