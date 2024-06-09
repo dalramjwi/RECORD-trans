@@ -58,6 +58,11 @@ const reqCallback = {
       }
     });
   },
+  /**
+   * @param {object} req 요청 객체
+   * @param {object} res 응답 객체
+   * @param {string} body POST 방식으로 전송된 데이터
+   */
   callbackSak: function (req, res, body) {
     let refereName = refererUse(req);
     let dirPath = readPath.publicDataPath();
