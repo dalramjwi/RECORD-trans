@@ -1,18 +1,23 @@
+const decodeAndParse = require("../basic_module/decodeAndParse");
+const fsFunction = require("../basic_module/fsFunction");
+const makePath = require("../basic_module/makePath");
+
+/**
+ * JSON file 전송받은 데이터로 update 하는 함수
+ * @param {string} datatype 업데이트 할 데이터 파일 제목
+ * @param {any} dataname 추가할 데이터
+ */
 const updateJSON = function (datatype, dataname) {
-  const fs = require("fs");
-  fs.readFile(`./public/${datatype}Data.json`, (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      let parse = JSON.parse(data);
-      parse.push(dataname);
-      let parsetitlePush = JSON.stringify(parse);
-      fs.writeFile(
-        `./public/${datatype}Data.json`,
-        `${parsetitlePush}`,
-        (err, data) => {}
-      );
-    }
+  const readPath = makePath.publicFolderPath(
+    "jsondata",
+    `${datatype}Data`,
+    "json"
+  );
+  fsFunction.read(readPath, (data) => {
+    let parse = decodeAndParse(data);
+    parse.push(dataname);
+    let updatedData = JSON.stringify(parse);
+    fsFunction.write(readPath, updatedData);
   });
 };
 
