@@ -1,3 +1,7 @@
+/**
+ *현재 날짜와 시간을 문자열로 반환하는 함수이다.
+ * @returns {string}
+ */
 function getCurrentDate() {
   let thisdate = new Date();
   let year = thisdate.getFullYear();
