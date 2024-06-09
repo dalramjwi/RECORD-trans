@@ -89,9 +89,9 @@ const reqCallback = {
                   deleteJSON("title", title);
                   deleteJSON("content", content);
                   deleteJSON("tag", tag);
-                  // fsFunction.unlink(`${dirPath}/${refereName}`);
                 }
               }
+              fsFunction.unlink(`${dirPath}/${refereName}`);
             });
           });
         }
