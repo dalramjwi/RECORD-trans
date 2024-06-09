@@ -11,99 +11,59 @@ function postMethod(req, res) {
   reqUrlSet(req, res, "write", reqFunctionSet.functionWrite);
   reqUrlSet(req, res, "data/sak", reqFunctionSet.functionSak);
   reqUrlSet(req, res, "searchtitle", reqFunctionSet.functionSearchTitle);
-  reqUrlSet(req, res, "searchcontent", reqFunctionSet.functionSearchContent);
-  reqUrlSet(req, res, "searchtag", reqFunctionSet.functionSearchTag);
+  reqUrlSet(req, res, "searchcontent", reqFunctionSet.functionSearch);
+  reqUrlSet(req, res, "searchtag", reqFunctionSet.functionSearch);
   reqUrlSet(req, res, "data/su", reqFunctionSet.functionSu);
   reqUrlSet(req, res, "suwrite", reqFunctionSet.functionSuWrite);
 
-  if (req.url === "/searchtitle") {
-    let body = "";
-    req.on("data", (data) => {
-      body += data.toString();
-    });
-    req.on("end", () => {
-      let Jparse = qs.parse(body);
-      let jparse = JSON.stringify(Jparse);
-      let resObj = { title: false };
-      let parseObj = JSON.stringify(resObj);
-      let obj = JSON.parse(parseObj);
-      // console.log(parse.search);
-
-      fs.readFile("./public/titleData.json", (err, data) => {
-        let parse = JSON.parse(data);
-        let jArr = [];
-        jArr.push(Jparse.search);
-        console.log(Jparse.search);
-        function templateList(data) {
-          let decode = decodeURI(data);
-          let parse = JSON.parse(decode);
-          let list = "<ul>";
-          for (let i = 0; i < jArr.length; i++) {
-            list =
-              list + `<li><a href="./data/${jArr[i]}.html">${jArr[i]}</a></li>`;
-            `<li>리스트생성</li>`;
-          }
-          list = list + "</ul>";
-          return list;
-        }
-        const htmlList = `${templateList(data)}`;
-        if (parse.includes(Jparse.search)) {
-          res.end(template.searchTemplate(htmlList));
-        } else {
-          res.end(template.alertFindTemplate(Jparse.search));
-        }
-      });
-      // console.log(obj);
-    });
-  }
-  if (req.url === "/searchcontent") {
-    let body = "";
-    req.on("data", (data) => {
-      body += data.toString();
-    });
-    req.on("end", () => {
-      let Jparse = qs.parse(body);
-      let jparse = JSON.stringify(Jparse);
-      // let parseObj = JSON.stringify(resObj);
-      // let obj = JSON.parse(parseObj);
-      // console.log(parse.search);
-      fs.readFile("./public/objectData.json", (err, data) => {
-        let objectData = JSON.parse(data);
-        let match = Jparse.search;
-        let cArr = [];
-        let tArr = [];
-        let titlename = [];
-        for (let i = 0; i < objectData.length; i++) {
-          let text = objectData[i].text;
-          let content = text.content;
-          cArr.push(content);
-          tArr.push(text);
-          if (tArr[i].content === match) {
-            titlename.push(tArr[i].title);
-          } else {
-            ("해당 파일이 존재하지 않습니다.");
-          }
-        }
-        function templateList() {
-          let list = "<ul>";
-          for (let i = 0; i < titlename.length; i++) {
-            list =
-              list +
-              `<li><a href="./data/${titlename[i]}.html">${titlename[i]}</a></li>`;
-            `<li>리스트생성</li>`;
-          }
-          list = list + "</ul>";
-          return list;
-        }
-        const htmlList = `${templateList()}`;
-        if (cArr.includes(Jparse.search)) {
-          res.end(template.searchTemplate(htmlList));
-        } else {
-          res.end(template.alertFindTemplate(match));
-        }
-      });
-    });
-  }
+  // if (req.url === "/searchcontent") {
+  //   let body = "";
+  //   req.on("data", (data) => {
+  //     body += data.toString();
+  //   });
+  //   req.on("end", () => {
+  //     let Jparse = qs.parse(body);
+  //     let jparse = JSON.stringify(Jparse);
+  //     // let parseObj = JSON.stringify(resObj);
+  //     // let obj = JSON.parse(parseObj);
+  //     // console.log(parse.search);
+  //     fs.readFile("./public/objectData.json", (err, data) => {
+  //       let objectData = JSON.parse(data);
+  //       let match = Jparse.search;
+  //       let cArr = [];
+  //       let tArr = [];
+  //       let titlename = [];
+  //       for (let i = 0; i < objectData.length; i++) {
+  //         let text = objectData[i].text;
+  //         let content = text.content;
+  //         cArr.push(content);
+  //         tArr.push(text);
+  //         if (tArr[i].content === match) {
+  //           titlename.push(tArr[i].title);
+  //         } else {
+  //           ("해당 파일이 존재하지 않습니다.");
+  //         }
+  //       }
+  //       function templateList() {
+  //         let list = "<ul>";
+  //         for (let i = 0; i < titlename.length; i++) {
+  //           list =
+  //             list +
+  //             `<li><a href="./data/${titlename[i]}.html">${titlename[i]}</a></li>`;
+  //           `<li>리스트생성</li>`;
+  //         }
+  //         list = list + "</ul>";
+  //         return list;
+  //       }
+  //       const htmlList = `${templateList()}`;
+  //       if (cArr.includes(Jparse.search)) {
+  //         res.end(template.searchTemplate(htmlList));
+  //       } else {
+  //         res.end(template.alertFindTemplate(match));
+  //       }
+  //     });
+  //   });
+  // }
   if (req.url === "/searchtag") {
     let body = "";
     req.on("data", (data) => {

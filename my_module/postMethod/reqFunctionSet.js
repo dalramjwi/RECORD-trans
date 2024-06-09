@@ -30,20 +30,12 @@ const reqFunctionSet = {
     reqBaseEvent(req, res, reqCallback.callbackSearchTitle);
   },
   /**
-   * url이 searchcontent일 때 요청 처리 함수
+   * url이 searchcontent,tag일 때 요청 처리 함수
    * @param {object} req 요청 객체
    * @param {object} res 응답 객체
    */
-  functionSearchContent: function (req, res) {
-    reqBaseEvent(req, res, reqCallback.callbackSearchContent);
-  },
-  /**
-   * url이 searchtag일 때 요청 처리 함수
-   * @param {object} req 요청 객체
-   * @param {object} res 응답 객체
-   */
-  functionSearchTag: function (req, res) {
-    reqBaseEvent(req, res, reqCallback.callbackSearchTag);
+  functionSearch: function (req, res) {
+    reqBaseEvent(req, res, reqCallback.callbackSearch);
   },
   /**
    * url이 data/su일 때 요청 처리 함수

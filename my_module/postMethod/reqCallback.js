@@ -103,9 +103,70 @@ const reqCallback = {
    * @param {object} res 응답 객체
    * @param {string} body POST 방식으로 전송된 데이터
    */
-  callbackSearchTitle: function (req, res, body) {},
-  callbackSearchContent: function (req, res, body) {},
-  callbackSearchTag: function (req, res, body) {},
+  callbackSearchTitle: function (req, res, body) {
+    let qparse = parseQsBody(body);
+    const searchTitle = qparse.search;
+    const fsreadPath = makePath.publicFolderPath(
+      "jsondata",
+      "titleData",
+      "json"
+    );
+    fsFunction.read(fsreadPath, (data) => {
+      let parse = decodeAndParse(data);
+      let searchResults = [];
+      // 검색어와 일치하는 제목을 찾아서 searchResults 배열에 추가
+      parse.forEach((item) => {
+        if (item.includes(searchTitle)) {
+          searchResults.push(item);
+        }
+      });
+      // 검색 결과에 따라 응답 처리
+      if (searchResults.length > 0) {
+        // 검색 결과가 있을 경우 검색된 제목들을 HTML 리스트로 만들어 응답
+        let list = "<ul>";
+        searchResults.forEach((title) => {
+          list += `<li><a href="./data/${title}.html">${title}</a></li>`;
+        });
+        list += "</ul>";
+        res.end(template.searchTemplate(list));
+      } else {
+        res.end(template.alertFindTemplate(searchTitle));
+      }
+    });
+  },
+  callbackSearch: function (req, res, body) {
+    let qparse = parseQsBody(body);
+    const search = qparse.search;
+    const fsreadPath = makePath.publicFolderPath(
+      "jsondata",
+      `objectData`,
+      "json"
+    );
+    fsFunction.read(fsreadPath, (data) => {
+      let parse = decodeAndParse(data);
+      let searchResults = [];
+      // 검색어와 일치하는 content를 가진 title을 찾아서 searchResults 배열에 추가
+      parse.forEach((item) => {
+        let text = item.text;
+        if (text.content === search) {
+          searchResults.push(text.title);
+        }
+      });
+
+      // 검색 결과에 따라 응답 처리
+      if (searchResults.length > 0) {
+        // 검색 결과가 있을 경우: 검색된 제목들을 HTML 리스트로 만들어 응답
+        let list = "<ul>";
+        searchResults.forEach((title) => {
+          list += `<li><a href="./data/${title}.html">${title}</a></li>`;
+        });
+        list += "</ul>";
+        res.end(template.searchTemplate(list));
+      } else {
+        res.end(template.alertFindTemplate(search));
+      }
+    });
+  },
   callbackSu: function (req, res, body) {},
   callbackSuWrite: function (req, res, body) {},
 };
