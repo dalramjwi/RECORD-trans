@@ -25,7 +25,6 @@ const reqCallback = {
     const title = qparse.title;
     const content = qparse.content;
     const tag = qparse.tag;
-    const publicDataPath = readPath.publicDataPath;
     const fsreadPath = makePath.publicFolderPath(
       "jsondata",
       "titleData",
@@ -53,5 +52,6 @@ const reqCallback = {
       }
     });
   },
+  callbackSak: function (res, body) {},
 };
 module.exports = reqCallback;

@@ -13,5 +13,8 @@ const reqFunctionSet = {
   functionWrite: function (req, res) {
     reqBaseEvent(req, res, reqCallback.callbackWrite);
   },
+  functionSak: function (req, res) {
+    reqBaseEvent(req, res, reqCallback.callbackSak);
+  },
 };
 module.exports = reqFunctionSet;
