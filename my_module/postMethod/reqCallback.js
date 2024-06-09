@@ -12,16 +12,15 @@ const reqCallback = {
     //data parse
     let qparse = parseQsBody(body);
     let jparse = parseJsonBody(qparse);
-    // let jparse = JSON.parse(parse);
-    let time = qparse.time;
-    const title = jparse.title;
-    const content = jparse.content;
-    const tag = jparse.tag;
+    const title = qparse.title;
+    const content = qparse.content;
+    const tag = qparse.tag;
+
     //파일 위치 변수 지정
-    const writeJsonFilePath = path.join(
-      __dirname,
-      `../public/data/${jparse.title}.json`
-    );
+    // const writeJsonFilePath = path.join(
+    //   __dirname,
+    //   `../public/data/${qparse.title}.json`
+    // );
     const readJsonFilePath = path.join(__dirname, `../public/data`);
     fs.readFile("./public/titleData.json", (err, data) => {
       let decode = decodeURI(data);

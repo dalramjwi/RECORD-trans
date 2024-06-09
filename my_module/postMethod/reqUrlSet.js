@@ -12,3 +12,6 @@ const reqUrlSet = function (req, res, address, callback) {
   }
 };
 module.exports = reqUrlSet;
+const path = require("path");
+const readJsonFilePath = path.join(__dirname, `../../public/data`);
+console.log(readJsonFilePath);
