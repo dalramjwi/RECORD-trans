@@ -1,3 +1,6 @@
+const parseJsonBody = require("./parseJsonBody");
+const parseQsBody = require("./parseqsBody");
+
 /**
  * reqFunctionSet의 콜백 함수로 사용되기 위한 함수의 모음 객체다.
  */
@@ -7,9 +10,9 @@ const reqCallback = {
    */
   callbackWrite: function (body) {
     //data parse
-    let qparse = qs.parse(body);
-    let parse = JSON.stringify(qparse);
-    let jparse = JSON.parse(parse);
+    let qparse = parseQsBody(body);
+    let jparse = parseJsonBody(qparse);
+    // let jparse = JSON.parse(parse);
     let time = qparse.time;
     const title = jparse.title;
     const content = jparse.content;
