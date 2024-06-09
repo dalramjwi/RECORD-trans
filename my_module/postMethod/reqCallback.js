@@ -13,6 +13,7 @@ const getCurrentDate = require("./timeCheck");
 const refererUse = require("../basic_module/refererUse");
 const getTime = require("./getTime");
 const deleteJSON = require("./deleteJSON");
+const deleteObjectJSON = require("./deleteObjectJSON");
 
 /**
  * reqFunctionSet의 콜백 함수로 사용되기 위한 함수의 모음 객체다.
@@ -84,10 +85,11 @@ const reqCallback = {
                   let title = data.title;
                   let content = data.content;
                   let tag = data.tag;
+                  deleteObjectJSON(data);
                   deleteJSON("title", title);
                   deleteJSON("content", content);
                   deleteJSON("tag", tag);
-                  fsFunction.unlink(`${dirPath}/${refereName}`);
+                  // fsFunction.unlink(`${dirPath}/${refereName}`);
                 }
               }
             });
