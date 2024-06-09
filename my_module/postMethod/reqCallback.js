@@ -85,29 +85,29 @@ const reqCallback = {
                   let title = data.title;
                   let content = data.content;
                   let tag = data.tag;
-                  deleteJSON("title", title);
-                  deleteJSON("content", content);
-                  deleteJSON("tag", tag);
-                  const deleteObjectJSON = function (dataname) {
-                    const readPath = makePath.publicFolderPath(
-                      "jsondata",
-                      "objectData",
-                      "json"
-                    );
+                  // deleteJSON("title", title);
+                  // deleteJSON("content", content);
+                  // deleteJSON("tag", tag);
+                  // const deleteObjectJSON = function (dataname) {
+                  //   const readPath = makePath.publicFolderPath(
+                  //     "jsondata",
+                  //     "objectData",
+                  //     "json"
+                  //   );
 
-                    fsFunction.read(readPath, (data) => {
-                      let parse = decodeAndParse(data);
-                      // 객체의 세가지 요소가 일치할 경우에만...
-                      let updatedArray = parse.filter((item) => {
-                        return !(
-                          item.text.title === dataname.title &&
-                          item.text.content === dataname.content &&
-                          item.text.tag === dataname.tag
-                        );
-                      });
-                      fsFunction.write(readPath, JSON.stringify(updatedArray));
-                    });
-                  };
+                  //   fsFunction.read(readPath, (data) => {
+                  //     let parse = decodeAndParse(data);
+                  //     // 객체의 세가지 요소가 일치할 경우에만...
+                  //     let updatedArray = parse.filter((item) => {
+                  //       return !(
+                  //         item.text.title === dataname.title &&
+                  //         item.text.content === dataname.content &&
+                  //         item.text.tag === dataname.tag
+                  //       );
+                  //     });
+                  //     fsFunction.write(readPath, JSON.stringify(updatedArray));
+                  //   });
+                  // };
                   deleteObjectJSON(data);
                 }
               }
