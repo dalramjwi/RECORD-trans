@@ -14,7 +14,7 @@ const reqCallback = {
   callbackWrite: function (body) {
     //data parse
     let qparse = parseQsBody(body);
-    let jparse = parseJsonBody(qparse);
+    // let jparse = parseJsonBody(qparse);
     const title = qparse.title;
     const content = qparse.content;
     const tag = qparse.tag;
@@ -25,7 +25,9 @@ const reqCallback = {
       "json"
     );
     fsFunction.read(fsreadPath, (data) => {
+      //한글이나 특수 문자 등이 포함되어 있는 경우 해독을 위한 decode 사용
       let decode = decodeURI(data);
+      //json 파일을 읽어오기에 JSON.parse 실행
       let parse = JSON.parse(decode);
       if (parse.includes(title)) {
         res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
