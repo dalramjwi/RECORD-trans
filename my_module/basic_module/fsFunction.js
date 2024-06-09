@@ -46,5 +46,16 @@ const fsFunction = {
       }
     });
   },
+  /**
+   * fs.unlink 함수화
+   * @param {string} path 삭제할 파일의 경로
+   */
+  unlink: function (path) {
+    fs.unlink(path, (err) => {
+      if (err) {
+        logErr(err);
+      }
+    });
+  },
 };
 module.exports = fsFunction;

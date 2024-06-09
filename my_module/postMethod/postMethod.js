@@ -12,48 +12,48 @@ function postMethod(req, res) {
   reqUrlSet(req, res, "data/sak", reqFunctionSet.functionSak);
 
   //삭제 실행
-  if (req.url === "/data/sak") {
-    req.on("end", () => {
-      //data parse
-      let qparse = qs.parse(body);
-      let parse = JSON.stringify(qparse);
-      let jparse = JSON.parse(parse);
-      const readJsonFilePath = path.join(__dirname, `../public/data`);
-      //req.header 조회로 referer 사용 - url 조회
-      let referer = req.headers.referer;
-      let refererSplit = referer.split("/");
-      let parserefer = refererSplit[4];
-      let namerefer = decodeURI(parserefer);
-      //dir 읽어 현재 url과 비교해 조건에 맞다면, 삭제
-      fs.readdir(readJsonFilePath, (err, data) => {
-        const dirlist = data;
-        dirlist.forEach((item) => {
-          if (item === namerefer) {
-            fs.readFile(`${readJsonFilePath}/${namerefer}`, (err, data) => {
-              let reptime = getTime(data);
-              fs.readFile("./public/objectData.json", (err, data) => {
-                let parse = JSON.parse(data);
-                for (let i = 0; i < parse.length; i++) {
-                  if (parse[i].time === reptime) {
-                    let data = parse[i].text;
-                    let title = data.title;
-                    let content = data.content;
-                    let tag = data.tag;
-                    deleteJSON("content", content);
-                    deleteJSON("tag", tag);
-                    deleteJSON("title", title);
-                    fs.unlink(`${readJsonFilePath}/${namerefer}`, (err) => {});
-                  }
-                }
-              });
-            });
-          }
-        });
-      });
-      res.writeHead(302, { Location: "/" });
-      res.end();
-    });
-  }
+  // if (req.url === "/data/sak") {
+  //   req.on("end", () => {
+  //     //data parse
+  //     let qparse = qs.parse(body);
+  //     let parse = JSON.stringify(qparse);
+  //     let jparse = JSON.parse(parse);
+  //     const readJsonFilePath = path.join(__dirname, `../public/data`);
+  //     //req.header 조회로 referer 사용 - url 조회
+  //     let referer = req.headers.referer;
+  //     let refererSplit = referer.split("/");
+  //     let parserefer = refererSplit[4];
+  //     let namerefer = decodeURI(parserefer);
+  //     //dir 읽어 현재 url과 비교해 조건에 맞다면, 삭제
+  //     fs.readdir(readJsonFilePath, (err, data) => {
+  //       const dirlist = data;
+  //       dirlist.forEach((item) => {
+  //         if (item === namerefer) {
+  //           fs.readFile(`${readJsonFilePath}/${namerefer}`, (err, data) => {
+  //             let reptime = getTime(data);
+  //             fs.readFile("./public/objectData.json", (err, data) => {
+  //               let parse = JSON.parse(data);
+  //               for (let i = 0; i < parse.length; i++) {
+  //                 if (parse[i].time === reptime) {
+  //                   let data = parse[i].text;
+  //                   let title = data.title;
+  //                   let content = data.content;
+  //                   let tag = data.tag;
+  //                   deleteJSON("content", content);
+  //                   deleteJSON("tag", tag);
+  //                   deleteJSON("title", title);
+  //                   fs.unlink(`${readJsonFilePath}/${namerefer}`, (err) => {});
+  //                 }
+  //               }
+  //             });
+  //           });
+  //         }
+  //       });
+  //     });
+  //     res.writeHead(302, { Location: "/" });
+  //     res.end();
+  //   });
+  // }
   if (req.url === "/searchtitle") {
     let body = "";
     req.on("data", (data) => {

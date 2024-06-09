@@ -11,6 +11,8 @@ const updateJSON = require("./updateJSON");
 const objectJSON = require("./objectJSON");
 const getCurrentDate = require("./timeCheck");
 const refererUse = require("../basic_module/refererUse");
+const getTime = require("./getTime");
+const deleteJSON = require("./deleteJSON");
 
 /**
  * reqFunctionSet의 콜백 함수로 사용되기 위한 함수의 모음 객체다.
@@ -57,15 +59,38 @@ const reqCallback = {
     });
   },
   callbackSak: function (req, res, body) {
-    let qparse = parseQsBody(body);
     let refereName = refererUse(req);
     let dirPath = readPath.publicDataPath();
+    const fsreadPath = makePath.publicFolderPath(
+      "jsondata",
+      "objectData",
+      "json"
+    );
     fsFunction.readDir(dirPath, (data) => {
       data.forEach((item) => {
         if (item === refereName) {
-          fsFunction.read(makePath.publicPath(`${title}`, "html"));
+          fsFunction.read(`${dirPath}/${refereName}`, (data) => {
+            let reptime = getTime(data);
+            fsFunction.read(fsreadPath, (data) => {
+              let parse = decodeAndParse(data);
+              for (let i = 0; i < parse.length; i++) {
+                if (parse[i].time === reptime) {
+                  let data = parse[i].text;
+                  let title = data.title;
+                  let content = data.content;
+                  let tag = data.tag;
+                  deleteJSON("content", content);
+                  deleteJSON("tag", tag);
+                  deleteJSON("title", title);
+                  fsFunction.unlink(`${dirPath}/${refereName}`);
+                }
+              }
+            });
+          });
         }
       });
+      writeHead_302(res);
+      res.end();
     });
   },
 };
