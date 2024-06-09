@@ -1,3 +1,4 @@
+const readPath = require("../basic_module/readPath");
 const parseJsonBody = require("./parseJsonBody");
 const parseQsBody = require("./parseqsBody");
 
@@ -21,7 +22,7 @@ const reqCallback = {
     //   __dirname,
     //   `../public/data/${qparse.title}.json`
     // );
-    const readJsonFilePath = path.join(__dirname, `../public/data`);
+    const publicDataPath = readPath.publicDataPath;
     fs.readFile("./public/titleData.json", (err, data) => {
       let decode = decodeURI(data);
       let parse = JSON.parse(decode);
@@ -31,7 +32,7 @@ const reqCallback = {
       } else {
         //전송된 데이터로 html 생성
         fs.writeFile(
-          `${readJsonFilePath}/${title}.html`,
+          `${publicDataPath}/${title}.html`,
           template.htmlTempalte(title, content, tag),
           (err) => {
             // console.log(err);
