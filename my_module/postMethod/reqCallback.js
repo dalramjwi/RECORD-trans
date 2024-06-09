@@ -37,12 +37,9 @@ const reqCallback = {
         res.end(template.alertMakeTemplate(title));
       } else {
         //전송된 데이터로 html 생성
-        fs.writeFile(
+        fsFunction.write(
           `${publicDataPath}/${title}.html`,
-          template.htmlTempalte(title, content, tag),
-          (err) => {
-            // console.log(err);
-          }
+          template.htmlTempalte(title, content, tag)
         );
         //전송받은 POST 데이터로 JSON DB 업데이트
         updateJSON("title", title);
