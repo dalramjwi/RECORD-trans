@@ -19,8 +19,12 @@ const reqCallback = {
     const content = qparse.content;
     const tag = qparse.tag;
     const publicDataPath = readPath.publicDataPath;
-    const readPath = makePath.publicFolderPath("jsondata", "titleData", "json");
-    fsFunction.read(readPath, (data) => {
+    const fsreadPath = makePath.publicFolderPath(
+      "jsondata",
+      "titleData",
+      "json"
+    );
+    fsFunction.read(fsreadPath, (data) => {
       let decode = decodeURI(data);
       let parse = JSON.parse(decode);
       if (parse.includes(title)) {
