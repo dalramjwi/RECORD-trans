@@ -116,11 +116,13 @@ const reqCallback = {
     );
     fsFunction.read(fsreadPath, (data) => {
       let parse = decodeAndParse(data);
+      // console.log("parse: ", parse);
       let searchResults = [];
+
       // 검색어와 일치하는 제목을 찾아서 searchResults 배열에 추가
       for (let i = 0; i < parse.length; i++) {
-        if (parse[i].text.title === search) {
-          searchResults.push(parse[i].text.title);
+        if (parse[i] === searchTitle) {
+          searchResults.push(parse[i]);
         }
       }
       // 검색 결과에 따라 응답 처리
