@@ -214,17 +214,17 @@ const reqCallback = {
   },
   callbackSuWrite: function (req, res, body) {
     let parse = parseQsBody(body);
-    let sutitle = parse.sutitle;
-    let sucontent = parse.sucontent;
-    let sutag = parse.sutag;
+    let title = parse.title;
+    let content = parse.content;
+    let tag = parse.tag;
     let dirPath = readPath.publicDataPath();
     fsFunction.write(
-      `${dirPath}/${sutitle}.html`,
-      template.htmlTempalte(sutitle, sucontent, sutag)
+      `${dirPath}/${title}.html`,
+      template.htmlTempalte(title, content, tag)
     );
-    updateJSON("title", sutitle);
-    updateJSON("content", sucontent);
-    updateJSON("tag", sutag);
+    updateJSON("title", title);
+    updateJSON("content", content);
+    updateJSON("tag", tag);
     objectJSON("object", parse, getCurrentDate());
     writeHead_302(res);
     res.end();

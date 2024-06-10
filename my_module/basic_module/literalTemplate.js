@@ -113,9 +113,9 @@ const template = {
 
   suForm: function (title, content, tag) {
     return ` <form action="/suwrite" method="post">
-    <input type="text" name="sutitle" id="sutitle" value = "${title}">
-    <input type="text" name="sucontent" id="sucontent" value = "${content}">
-    <input type="text" name="sutag" id="sutag" value = "${tag}">
+    <input type="text" name="title" id="title" value = "${title}">
+    <input type="text" name="content" id="content" value = "${content}">
+    <input type="text" name="tag" id="tag" value = "${tag}">
     <button type="submit">작성</button>
    </form>`;
   },
