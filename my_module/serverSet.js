@@ -4,20 +4,10 @@
  */
 const serverSet = function serverSet(port) {
   const http = require("http");
-  const fs = require("fs");
-  const path = require("path");
-  const qs = require("node:querystring");
   const fileUtils = require("./basic_module/fileUtils.js");
   const getMethod = require("./getMethod/getMethod.js");
   const postMethod = require("./postMethod/postMethod.js");
   const logErr = require("./basic_module/logErr.js");
-  const template = require("./basic_module/literalTemplate.js");
-  const updateJSON = require("./postMethod/updateJSON.js");
-  const objectJSON = require("./postMethod/objectJSON.js");
-  const getCurrentDate = require("./postMethod/timeCheck.js");
-  const getTime = require("./postMethod/getTime.js");
-  const deleteJSON = require("./postMethod/deleteJSON.js");
-  const searchPOSTTemplate = require("./postMethod/searchTemplate.js");
   // const titleData = require("../public/titleData.json");
   // const contentData = require("../public/contentData.json");
   // const tagData = require("../public/tagData.json");
