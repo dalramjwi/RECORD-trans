@@ -193,6 +193,23 @@ const reqCallback = {
     );
     fsFunction.read(fsreadPath, (data) => {
       let objectData = decodeAndParse(data);
+      for (let i = 0; i < objectData.length; i++) {
+        let text = objectData[i].text;
+        let title = text.title;
+        tArr.push(title);
+        if (tArr[i] === name) {
+          let ptitle = text.title;
+          let pcontent = text.content;
+          let ptag = text.tag;
+          deleteJSON("title", ptitle);
+          deleteJSON("content", pcontent);
+          deleteJSON("tag", ptag);
+          deleteObjectJSON(objectData[i].text);
+
+          fsFunction.unlink(`${dirPath}/${refereName}`);
+          res.end(template.suTemplate(ptitle, pcontent, ptag));
+        }
+      }
     });
   },
   callbackSuWrite: function (req, res, body) {},
