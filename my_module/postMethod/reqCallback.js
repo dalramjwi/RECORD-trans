@@ -72,6 +72,7 @@ const reqCallback = {
       "objectData",
       "json"
     );
+    let name = refereName.split(".")[0];
     fsFunction.readDir(dirPath, (data) => {
       data.forEach((item) => {
         if (item === refereName) {
@@ -80,7 +81,7 @@ const reqCallback = {
             fsFunction.read(fsreadPath, (data) => {
               let parse = decodeAndParse(data);
               for (let i = 0; i < parse.length; i++) {
-                if (parse[i].time === reptime) {
+                if (parse[i].time === reptime && parse[i].text.title === name) {
                   let data = parse[i].text;
                   let title = data.title;
                   let content = data.content;
