@@ -180,7 +180,21 @@ const reqCallback = {
       }
     });
   },
-  callbackSu: function (req, res, body) {},
+  callbackSu: function (req, res, body) {
+    let qparse = parseQsBody(body);
+    let refereName = refererUse(req);
+    let name = refereName.split(".")[0];
+    let tArr = [];
+    let dirPath = readPath.publicDataPath();
+    const fsreadPath = makePath.publicFolderPath(
+      "jsondata",
+      "objectData",
+      "json"
+    );
+    fsFunction.read(fsreadPath, (data) => {
+      let objectData = decodeAndParse(data);
+    });
+  },
   callbackSuWrite: function (req, res, body) {},
 };
 module.exports = reqCallback;
