@@ -212,6 +212,22 @@ const reqCallback = {
       }
     });
   },
-  callbackSuWrite: function (req, res, body) {},
+  callbackSuWrite: function (req, res, body) {
+    let parse = parseQsBody(body);
+    let sutitle = parse.sutitle;
+    let sucontent = parse.sucontent;
+    let sutag = parse.sutag;
+    let dirPath = readPath.publicDataPath();
+    fsFunction.write(
+      `${dirPath}/${sutitle}.html`,
+      template.htmlTempalte(sutitle, sucontent, sutag)
+    );
+    updateJSON("title", sutitle);
+    updateJSON("content", sucontent);
+    updateJSON("tag", sutag);
+    objectJSON("object", parse, getCurrentDate());
+    writeHead_302(res);
+    res.end();
+  },
 };
 module.exports = reqCallback;
