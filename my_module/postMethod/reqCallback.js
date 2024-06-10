@@ -89,6 +89,7 @@ const reqCallback = {
                   deleteJSON("title", title);
                   deleteJSON("content", content);
                   deleteJSON("tag", tag);
+                  deleteObjectJSON(data);
                 }
               }
               fsFunction.unlink(`${dirPath}/${refereName}`);
