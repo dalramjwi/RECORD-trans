@@ -15,38 +15,5 @@ function postMethod(req, res) {
   reqUrlSet(req, res, "searchtag", reqFunctionSet.functionSearch);
   reqUrlSet(req, res, "data/su", reqFunctionSet.functionSu);
   reqUrlSet(req, res, "suwrite", reqFunctionSet.functionSuWrite);
-
-  // if (req.url === "/suwrite") {
-  //   let body = "";
-  //   req.on("data", (data) => {
-  //     body += data.toString();
-  //   });
-  //   req.on("end", () => {
-  //     let Jparse = qs.parse(body);
-  //     let jparse = JSON.stringify(Jparse);
-  //     let sutitle = Jparse.sutitle;
-  //     let sucontent = Jparse.sucontent;
-  //     let sutag = Jparse.sutag;
-  //     const readJsonFilePath = path.join(__dirname, `../public/data`);
-  //     // console.log(parse);
-  //     fs.writeFile(
-  //       `${readJsonFilePath}/${sutitle}.html`,
-  //       template.htmlTempalte(sutitle, sucontent, sutag),
-  //       (err) => {
-  //         // console.log(err);
-  //       }
-  //     );
-  //     updateJSON("title", sutitle);
-  //     updateJSON("content", sucontent);
-  //     updateJSON("tag", sutag);
-  //     // fs.readFile("./public/titleData.json", (err, data) => {
-  //     //   const parse = JSON.parse(data);
-  //     //   // parse.splice();
-  //     //   console.log(parse);
-  //     // });
-  //     res.writeHead(302, { Location: "/" });
-  //     res.end();
-  //   });
-  // }
 }
 module.exports = postMethod;
