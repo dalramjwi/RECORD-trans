@@ -19,8 +19,8 @@ const mainTemplate = {
   aside: function (sOne, sTwo) {
     return `<aside>
     <div id="sidebar">
-      <div id="sOne">${sOne}</div>
-      <div id="sTwo">${sTwo}</div>
+      <div id="${sOne}">${sOne}</div>
+      <div id="${sTwo}">${sTwo}</div>
     </div>
     </aside>`;
   },
