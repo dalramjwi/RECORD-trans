@@ -32,8 +32,8 @@ const mainTemplate = {
   root: function (rOne, rTwo) {
     return `<div id="root">
       <div id="main">
-        <div id="rOne">${rOne}</div>
-        <div id="rTwo">${rTwo}</div>
+        <div id="${rOne}">${rOne}</div>
+        <div id="${rTwo}">${rTwo}</div>
       </div>
     </div>`;
   },
