@@ -1,8 +1,6 @@
 import { formSet } from "../../js_module/formSet.js";
 import { formSet2 } from "../../js_module/formSet2.js";
-import { hoverBackground } from "./hoverBackground.js";
 //변수 할당
-const test = document.getElementById("test");
 const banner = document.getElementById("banner");
 const search = document.getElementById("search");
 const sidebar = document.getElementById("sidebar");
@@ -99,7 +97,4 @@ bannerdiv.addEventListener("mouseover", () => {
   //   // console.log(intervalHandler);
   //   intervalHandler++;
   // }, 100);
-});
-bannerdiv.addEventListener("mouseover", () => {
-  hoverBackground(test, bannerdiv);
 });

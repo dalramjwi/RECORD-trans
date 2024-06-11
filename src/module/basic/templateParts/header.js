@@ -18,7 +18,7 @@ const headerTemplate = {
    * @param {string} bannerName 배너에 들어갈 제목
    */
   banner: function (img, imgType, bannerName) {
-    return `<div id="banner"><div id ="bannerdiv"><img src="./img/${img}.${imgType}" id = "${img}img"><a href="/" id = "test">${bannerName}</a></div>
+    return `<div id="banner"><div id ="bannerdiv"><img src="./img/${img}.${imgType}" id = "${img}img"><a href="/">${bannerName}</a></div>
   </div>`;
   },
 
