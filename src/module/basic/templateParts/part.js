@@ -74,12 +74,11 @@ const partTemplate = {
   suForm: function (title, content, tag) {
     return ` <form action="/suwrite" method="post">
     <input type="text" name="title" id="title" value = "${title}">
-    <input type="text" name="content" id="content" value = "${content}">
-    <input type="text" name="tag" id="tag" value = "${tag}">
+    <textarea name="content" id="content" cols="50" rows="30" value ="${content}" >}</textarea>    <input type="text" name="tag" id="tag" value = "${tag}">
     <button type="submit">작성</button>
    </form>`;
   },
 
-  drop: `<ul id = "drop"><li id = "selectmenu">검색 방식&#9663;</li><li id = "titlelist">제목</li><li id ="contentlist">내용</li><li id ="taglist">태그</li></ul>`,
+  drop: `<ul id = "drop"><li id = "selectmenu">검색 방식 &#9663;</li><li id = "titlelist">제목</li><li id ="contentlist">내용</li><li id ="taglist">태그</li></ul>`,
 };
 module.exports = partTemplate;

@@ -1,4 +1,113 @@
+#recordimg {
+  display: none;
+  transform-origin: center;
+}
 * {
+  list-style: none;
+}
+#contentSelect {
+  display: none;
+}
+#tagSelect {
+  display: none;
+}
+header {
+  position: relative;
+  display: flex;
+  height: 25vh;
+  background-color: #333333e6;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+}
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+}
+#bannerdiv > a {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 5vw;
+  text-decoration: none;
+  color: white;
+}
+#drop {
+  position: absolute;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0;
+  right: 1vw;
+  top: 4.5vw;
+}
+#drop li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#drop li:hover {
+  background-color: #ddd;
+}
+#selectmenu {
+  background-color: #ddd;
+  width: 15vw;
+}
+main {
+  display: flex;
+}
+#sidebar {
+  background-color: pink;
+  width: 20vw;
+}
+#htmlList {
+  height: 21vh;
+  padding-top: 1vw;
+  border: solid, #333333e6;
+  border-radius: 1.5vw;
+  margin: 5vw 0 5vw 0;
+  border-width: 2vw;
+}
+#write {
+  background-color: #333333e6;
+  padding: 1.5vw;
+  border-radius: 1.5vw;
+}
+form#writeHTML {
+  display: flex;
+  flex-direction: column;
+}
+#root {
+  width: 100%;
+  padding-right: 20vw;
+}
+input#title {
+  height: 6vw;
+}
+input#content {
+  height: 50vw;
+}
+#titlelist,
+#contentlist,
+#taglist {
+  display: none;
+}
+#htmlList > ul {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+#htmlList > ul > li > a {
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+}
+#htmlList > ul > li > a:hover {
+  color: rgb(29, 88, 156);
+  background-color: rgba(0, 0, 0, 0.171);
+  padding: 0 2vw 0 2vw;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* * {
   list-style: none;
 }
 
@@ -8,13 +117,15 @@ body {
 
 header {
   font-family: "Black Han Sans", sans-serif;
-  background-color: #333;
+  background-color: #333333e6;
   color: #fff;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 5vw;
+  padding-bottom: 5vw;
 }
 
 #banner {
@@ -22,13 +133,30 @@ header {
 }
 
 #banner a {
-  font-size: 8vw;
+  font-size: 5vw;
   color: #000000;
   z-index: 1;
   position: relative;
-  line-height: 25vw;
+  line-height: 11vh;
   text-decoration: none;
 }
+form {
+  display: flex;
+  gap: 2vw;
+  align-items: center;
+}
+#drop {
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  left: 70%;
+  margin-right: 20%;
+  align-items: center;
+  font-size: 2.5vw;
+}
+
 
 main {
   display: flex;
@@ -71,10 +199,6 @@ aside {
   color: #666;
 }
 
-button {
-  margin-top: 20px;
-}
-
 #write > button {
   padding: 10px 20px;
   background-color: #333;
@@ -97,43 +221,9 @@ button {
   margin-right: 0;
 }
 
-#drop {
-  margin: 0;
-  padding: 0;
-  display: inline-flex;
-  flex-direction: column;
-  position: relative;
-  /* left: 70%; */
-  margin-right: 20%;
-}
-
-#drop li {
-  padding: 10px;
-  cursor: pointer;
-}
-
-#drop li:hover {
-  background-color: #ddd;
-}
-
-#contentSelect {
-  display: none;
-}
-#tagSelect {
-  display: none;
-}
 
 header > div:nth-of-type(2) {
   display: inline-block;
-}
-#recordimg {
-  display: none;
-  position: absolute;
-  top: 6%;
-  left: 50%;
-  z-index: 0;
-  height: 8vh;
-  transform-origin: center;
 }
 #bannerdiv {
   background-image: radial-gradient(
@@ -145,21 +235,22 @@ header > div:nth-of-type(2) {
     #7a8896
   );
   box-shadow: -8px 8px 6px 2px rgba(0, 0, 0, 0.32);
+  height: 14vw;
 
-  width: 25vw;
-  height: 25vw;
+  width: 14vw;
 }
+*/
 @media screen and (max-width: 768px) {
-  main {
+  /* main {
     flex-direction: column;
-  }
-
+  } */
+  /* 
   aside {
     width: 100%;
-  }
+  } */
 
-  #root {
+  /* #root {
     width: 100%;
     margin-top: 20px;
-  }
+  } */
 }
