@@ -1,24 +1,109 @@
-#drop {
-  position: relative;
-}
-#titlelist {
+#recordimg {
   display: none;
+  transform-origin: center;
+}
+* {
+  list-style: none;
 }
 #contentSelect {
-  display: none;
-}
-#contentlist {
-  display: none;
-}
-#taglist {
   display: none;
 }
 #tagSelect {
   display: none;
 }
+header {
+  position: relative;
+  display: flex;
+  height: 25vh;
+  background-color: #333333e6;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+}
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+}
+#bannerdiv > a {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 5vw;
+  text-decoration: none;
+  color: white;
+}
+#drop {
+  position: absolute;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0;
+  right: 1vw;
+  top: 4.5vw;
+}
+#drop li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#drop li:hover {
+  background-color: #ddd;
+}
+#selectmenu {
+  background-color: #ddd;
+  width: 15vw;
+}
+main {
+  display: flex;
+}
+#sidebar {
+  background-color: pink;
+  width: 20vw;
+}
+#htmlList {
+  height: 21vh;
+  padding-top: 1vw;
+  border: solid, #333333e6;
+  border-radius: 1.5vw;
+  margin: 5vw 0 5vw 0;
+  border-width: 2vw;
+}
 #write {
+  background-color: #333333e6;
+  padding: 1.5vw;
+  border-radius: 1.5vw;
+}
+form#writeHTML {
+  display: flex;
+  flex-direction: column;
+}
+#root {
+  width: 100%;
+  padding-right: 20vw;
+}
+input#title {
+  height: 6vw;
+}
+input#content {
+  height: 50vw;
+}
+#titlelist,
+#contentlist,
+#taglist {
   display: none;
 }
-#recordimg {
-  display: none;
+#htmlList > ul {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+#htmlList > ul > li > a {
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+}
+#htmlList > ul > li > a:hover {
+  color: rgb(29, 88, 156);
+  background-color: rgba(0, 0, 0, 0.171);
+  padding: 0 2vw 0 2vw;
+  text-decoration: none;
+  font-weight: bold;
 }

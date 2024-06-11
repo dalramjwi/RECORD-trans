@@ -74,7 +74,7 @@ const partTemplate = {
   suForm: function (title, content, tag) {
     return ` <form action="/suwrite" method="post">
     <input type="text" name="title" id="title" value = "${title}">
-    <textarea name="content" id="content" cols="50" rows="30" value ="${content}" >}</textarea>    <input type="text" name="tag" id="tag" value = "${tag}">
+    <textarea name="content" id="content" cols="50" rows="30" value ="${content}">${content}</textarea>    <input type="text" name="tag" id="tag" value = "${tag}">
     <button type="submit">작성</button>
    </form>`;
   },

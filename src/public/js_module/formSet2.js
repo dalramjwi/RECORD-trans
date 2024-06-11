@@ -17,6 +17,7 @@ export const formSet2 = function formSet(formData, inputData, buttonData) {
   // form.appendChild(inputSet(inputData[0], inputData[1][1], inputData[2][1]));
   const textArea = document.createElement("textarea");
   textArea.id = "content";
+  textArea.name = "content";
   textArea.placeholder = "내용 작성";
   textArea.cols = "50";
   textArea.rows = "30";
