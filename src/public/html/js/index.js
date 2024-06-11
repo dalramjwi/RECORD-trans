@@ -1,6 +1,8 @@
 import { formSet } from "../../js_module/formSet.js";
 import { formSet2 } from "../../js_module/formSet2.js";
+import { hoverBackground } from "./hoverBackground.js";
 //변수 할당
+const test = document.getElementById("test");
 const banner = document.getElementById("banner");
 const search = document.getElementById("search");
 const sidebar = document.getElementById("sidebar");
@@ -28,9 +30,7 @@ const formData = ["./searchtitle", "POST", titleSelect];
 const inputData = ["type", "search", "페이지 제목 검색"];
 const buttonData = ["submit", "검색"];
 formSet(formData, inputData, buttonData);
-//모듈 사용 - htmlList
 //모듈 사용 - write
-
 const formData2 = ["./write", "POST", write];
 const inputData2 = [
   "type",
@@ -39,9 +39,6 @@ const inputData2 = [
 ];
 const buttonData2 = ["submit", "작성"];
 formSet2(formData2, inputData2, buttonData2);
-//write css 간단히
-writeHTML.style.display = "flex";
-writeHTML.style.flexDirection = "column";
 //간단한 form 삽입되는지 확인
 const formData3 = ["./searchcontent", "POST", contentSelect];
 const inputData3 = ["type", "search", "페이지 내용 검색"];
@@ -102,4 +99,7 @@ bannerdiv.addEventListener("mouseover", () => {
   //   // console.log(intervalHandler);
   //   intervalHandler++;
   // }, 100);
+});
+bannerdiv.addEventListener("mouseover", () => {
+  hoverBackground(test, bannerdiv);
 });

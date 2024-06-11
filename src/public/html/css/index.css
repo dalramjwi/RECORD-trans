@@ -1,12 +1,13 @@
 * {
   list-style: none;
 }
+
 body {
-  font-family: Arial, sans-serif;
   background-color: #f0f0f0;
 }
 
 header {
+  font-family: "Black Han Sans", sans-serif;
   background-color: #333;
   color: #fff;
   padding: 10px;
@@ -21,13 +22,12 @@ header {
 }
 
 #banner a {
+  font-size: 8vw;
   color: #000000;
   z-index: 1;
   position: relative;
-  /* background-color: whitesmoke; */
-  /* width: 20%; */
-  /* display: inline-block; */
-  /* height: 20%; */
+  line-height: 25vw;
+  text-decoration: none;
 }
 
 main {
@@ -136,7 +136,16 @@ header > div:nth-of-type(2) {
   transform-origin: center;
 }
 #bannerdiv {
-  background-color: whitesmoke;
+  background-image: radial-gradient(
+    circle,
+    #d8dee7,
+    #c0c8d2,
+    #a8b2be,
+    #919daa,
+    #7a8896
+  );
+  box-shadow: -8px 8px 6px 2px rgba(0, 0, 0, 0.32);
+
   width: 25vw;
   height: 25vw;
 }

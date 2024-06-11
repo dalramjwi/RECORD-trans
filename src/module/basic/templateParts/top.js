@@ -10,6 +10,9 @@ const topTemplate = {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Sorock</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Black+Han+Sans&family=Do+Hyeon&family=Noto+Serif+KR:wght@200..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./${name}.css">
       </head>
       <body>
@@ -28,6 +31,9 @@ const topTemplate = {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="date" content="${date}" id="currentDate">
         <title>Sorock</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Black+Han+Sans&family=Do+Hyeon&family=Noto+Serif+KR:wght@200..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./${name}.css">
       </head>
       <body>
