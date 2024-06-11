@@ -1,2 +1,2 @@
-const serverSet = require("./my_module/serverSet");
+const serverSet = require("./src/serverSet.js");
 serverSet(8080);
