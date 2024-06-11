@@ -1,88 +1,220 @@
-#currentDate {
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: space-between;
-}
-#btn {
-  display: flex;
-  align-items: flex-end;
-}
-#search {
-  display: none;
-}
-#recordimg {
-  display: none;
-}
+/* 기본 스타일 */
 * {
   font-family: "Noto Serif KR", serif;
   list-style: none;
+  box-sizing: border-box;
 }
-header {
-  position: relative;
+#currentDate {
   display: flex;
-  height: 25vh;
-  background-color: #333333e6;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 3vw;
+  justify-content: space-between;
+  gap: 2vw;
+  background-color: #8f9ba885;
+  padding: 5vw;
+}
+#btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1vw;
+}
+#title {
+  font-weight: bold;
 }
 body {
   background-color: #f0f0f0;
   margin: 0;
+  padding: 0;
 }
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+  height: 37vh;
+  background-color: #333333e6;
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 150px;
+}
+
+#bannerdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: radial-gradient(
+    circle,
+    #d8dee7,
+    #c0c8d2,
+    #a8b2be,
+    #919daa,
+    #7a8896
+  );
+  box-shadow: -8px 8px 6px 2px rgba(0, 0, 0, 0.32);
+  width: 14vw;
+  height: 14vw;
+  min-width: 100px;
+  min-height: 100px;
+  position: relative;
+  z-index: 2;
+}
+
 #bannerdiv > a {
   font-family: "Black Han Sans", sans-serif;
   font-size: 5vw;
   text-decoration: none;
   color: white;
-}
-#drop {
-  position: absolute;
-  display: inline-flex;
-  flex-direction: column;
-  padding: 0;
-  right: 1vw;
-  top: 4.5vw;
-}
-#drop li {
-  padding: 10px;
-  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
-#drop li:hover {
-  background-color: #ddd;
+input#title {
+  height: 6vw;
+  min-height: 40px;
 }
-#selectmenu {
-  background-color: #ddd;
-  width: 15vw;
+
+input#content {
+  height: 50vw;
+  min-height: 100px;
 }
-main {
+
+#titlelist,
+#contentlist,
+#taglist,
+#contentSelect,
+#tagSelect {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+#htmlList > ul {
   display: flex;
+  flex-direction: column;
+  gap: 2vw;
 }
-#sidebar {
-  background-color: pink;
-  width: 20vw;
+
+#htmlList > ul > li > a {
+  color: black;
+  text-decoration: none;
+}
+
+#htmlList > ul > li > a:hover {
+  color: rgb(29, 88, 156);
+  background-color: rgba(0, 0, 0, 0.171);
+  padding: 0 2vw;
+  font-weight: bold;
+}
+
+#menu {
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+#menu li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#menu li:last-child {
+  margin-right: 0;
 }
 
 form#writeHTML {
   display: flex;
   flex-direction: column;
 }
-#root {
-  width: 100%;
-  padding-right: 20vw;
+
+#write > button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+#recordimg {
+  display: none;
+  width: 80%;
+  position: absolute;
+  animation: spin 5s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#title {
+  font-size: 3vw;
+  padding-bottom: 1.5vw;
+}
+#content {
+  font-size: 3vw;
+}
+#bannerdiv:hover #recordimg {
+  display: block;
+  transform-origin: center;
+  z-index: 1;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 1024px) {
+  #drop {
+    right: 1vw;
+  }
 }
 
-input#title {
-  height: 6vw;
+@media screen and (max-width: 768px) {
+  #write {
+    width: 90%;
+    min-width: unset;
+  }
+
+  header,
+  main {
+    gap: 2vw;
+  }
+
+  header {
+    height: auto;
+    min-height: 100px;
+  }
+
+  #bannerdiv > a {
+    font-size: 7vw;
+  }
+  #drop {
+    top: 10%;
+  }
 }
-input#content {
-  height: 50vw;
-}
-#titlelist,
-#contentlist,
-#taglist {
-  display: none;
+
+@media screen and (max-width: 480px) {
+  header,
+  main {
+    gap: 1vw;
+  }
+
+  header {
+    padding: 5px;
+  }
+
+  #bannerdiv {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  #bannerdiv > a {
+    font-size: 9vw;
+  }
+
+  #drop {
+    right: 1vw;
+    top: 5vw;
+  }
 }

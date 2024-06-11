@@ -41,6 +41,8 @@ header {
   height: 14vw;
   min-width: 100px;
   min-height: 100px;
+  position: relative;
+  z-index: 2;
 }
 
 #bannerdiv > a {
@@ -48,6 +50,8 @@ header {
   font-size: 5vw;
   text-decoration: none;
   color: white;
+  position: relative;
+  z-index: 2;
 }
 
 #drop {
@@ -189,9 +193,24 @@ form#writeHTML {
 }
 #recordimg {
   display: none;
-  transform-origin: center;
+  width: 80%;
+  position: absolute;
+  animation: spin 5s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
+#bannerdiv:hover #recordimg {
+  display: block;
+  transform-origin: center;
+  z-index: 1;
+}
 @media screen and (max-width: 1024px) {
   #drop {
     right: 1vw;
