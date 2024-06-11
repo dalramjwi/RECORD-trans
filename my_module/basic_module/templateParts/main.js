@@ -12,28 +12,32 @@ const mainTemplate = {
     `;
   },
   /**
-   *
-   * @param {*} sOne
-   * @param {*} sTwo
+   * aside part 함수
+   * @param {string} rOneId ID
+   * @param {string} rTwoId ID
+   * @param {function} rOne text 및 함수 결과
+   * @param {function} rTwo text 및 함수 결과
    */
-  aside: function (sOne, sTwo) {
+  aside: function (sOneId, sTwoId, sOne, sTwo) {
     return `<aside>
     <div id="sidebar">
-      <div id="${sOne}">${sOne}</div>
-      <div id="${sTwo}">${sTwo}</div>
+      <div id="${sOneId}">${sOne}</div>
+      <div id="${sTwoId}">${sTwo}</div>
     </div>
     </aside>`;
   },
   /**
    * root part 함수
-   * @param {function} rOne
-   * @param {function} rTwo
+   * @param {string} rOneId ID
+   * @param {string} rTwoId ID
+   * @param {function} rOne text 및 함수 결과
+   * @param {function} rTwo text 및 함수 결과
    */
-  root: function (rOne, rTwo) {
+  root: function (rOneId, rTwoId, rOne, rTwo) {
     return `<div id="root">
       <div id="main">
-        <div id="${rOne}">${rOne}</div>
-        <div id="${rTwo}">${rTwo}</div>
+        <div id="${rOneId}">${rOne}</div>
+        <div id="${rTwoId}">${rTwo}</div>
       </div>
     </div>`;
   },
