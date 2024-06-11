@@ -56,21 +56,26 @@ header {
   flex-direction: column;
   padding: 0;
   right: 1vw;
-  top: 4.5vw;
 }
 
 #drop li {
   padding: 10px;
-  cursor: pointer;
 }
 
 #drop li:hover {
   background-color: #ddd;
 }
 
+#drop:hover ul {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: auto;
+}
 #selectmenu {
   background-color: #ddd;
-  width: 15vw;
 }
 
 main {
@@ -134,6 +139,7 @@ input#content {
 #contentSelect,
 #tagSelect {
   display: none;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 #htmlList > ul {
@@ -188,8 +194,7 @@ form#writeHTML {
 
 @media screen and (max-width: 1024px) {
   #drop {
-    right: 2vw;
-    top: 6vw;
+    right: 1vw;
   }
 }
 
@@ -217,6 +222,9 @@ form#writeHTML {
 
   #bannerdiv > a {
     font-size: 7vw;
+  }
+  #drop {
+    top: 10%;
   }
 }
 
