@@ -1,37 +1,55 @@
-#recordimg {
-  display: none;
-  transform-origin: center;
-}
+/* 기본 스타일 */
 * {
   font-family: "Noto Serif KR", serif;
   list-style: none;
+  box-sizing: border-box;
 }
-#contentSelect {
-  display: none;
+
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
 }
-#tagSelect {
-  display: none;
-}
+
 header {
-  position: relative;
   display: flex;
-  height: 25vh;
-  background-color: #333333e6;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 3vw;
+  height: 37vh;
+  background-color: #333333e6;
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 150px;
 }
-body {
-  background-color: #f0f0f0;
-  margin: 0;
+
+#bannerdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: radial-gradient(
+    circle,
+    #d8dee7,
+    #c0c8d2,
+    #a8b2be,
+    #919daa,
+    #7a8896
+  );
+  box-shadow: -8px 8px 6px 2px rgba(0, 0, 0, 0.32);
+  width: 14vw;
+  height: 14vw;
+  min-width: 100px;
+  min-height: 100px;
 }
+
 #bannerdiv > a {
   font-family: "Black Han Sans", sans-serif;
   font-size: 5vw;
   text-decoration: none;
   color: white;
 }
+
 #drop {
   position: absolute;
   display: inline-flex;
@@ -40,6 +58,7 @@ body {
   right: 1vw;
   top: 4.5vw;
 }
+
 #drop li {
   padding: 10px;
   cursor: pointer;
@@ -48,167 +67,93 @@ body {
 #drop li:hover {
   background-color: #ddd;
 }
+
 #selectmenu {
   background-color: #ddd;
   width: 15vw;
 }
+
 main {
   display: flex;
   padding-bottom: 5vw;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+  min-height: 300px;
 }
-#sidebar {
-  background-color: pink;
-  width: 20vw;
+div#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #htmlList {
-  height: 21vh;
+  width: 70%;
   padding-top: 1vw;
-  border: solid, #333333e6;
+  margin: 5vw 0;
+  border: 2px solid #333333e6;
   border-radius: 1.5vw;
-  margin: 5vw 0 5vw 0;
   border-width: 2vw;
+  height: 21vh;
+  min-height: 150px;
 }
+
 #write {
   background-color: #333333e6;
   padding: 1.5vw;
   border-radius: 1.5vw;
+  min-width: 200px;
+  width: 70%;
 }
-form#writeHTML {
-  display: flex;
-  flex-direction: column;
-}
+
 #root {
   width: 100%;
-  padding-right: 20vw;
 }
+
+input#title,
+input#content {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
 input#title {
   height: 6vw;
+  min-height: 40px;
 }
+
 input#content {
   height: 50vw;
+  min-height: 100px;
 }
+
 #titlelist,
 #contentlist,
-#taglist {
+#taglist,
+#contentSelect,
+#tagSelect {
   display: none;
 }
+
 #htmlList > ul {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   gap: 2vw;
 }
+
 #htmlList > ul > li > a {
-  display: inline-block;
   color: black;
   text-decoration: none;
 }
+
 #htmlList > ul > li > a:hover {
   color: rgb(29, 88, 156);
   background-color: rgba(0, 0, 0, 0.171);
-  padding: 0 2vw 0 2vw;
-  text-decoration: none;
-  font-weight: bold;
-}
-/* * {
-  list-style: none;
-}
-
-body {
-  background-color: #f0f0f0;
-}
-
-header {
-  font-family: "Black Han Sans", sans-serif;
-  background-color: #333333e6;
-  color: #fff;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5vw;
-  padding-bottom: 5vw;
-}
-
-#banner {
-  text-align: center;
-}
-
-#banner a {
-  font-size: 5vw;
-  color: #000000;
-  z-index: 1;
-  position: relative;
-  line-height: 11vh;
-  text-decoration: none;
-}
-form {
-  display: flex;
-  gap: 2vw;
-  align-items: center;
-}
-#drop {
-  margin: 0;
-  padding: 0;
-  display: inline-flex;
-  flex-direction: column;
-  position: relative;
-  left: 70%;
-  margin-right: 20%;
-  align-items: center;
-  font-size: 2.5vw;
-}
-
-
-main {
-  display: flex;
-  justify-content: space-between;
-}
-
-aside {
-  width: 30%;
-  background-color: #f0f0f0;
-}
-
-#sidebar {
-  padding: 10px;
-}
-
-#sidebar div {
-  margin-bottom: 10px;
-}
-
-#root {
-  width: 65%;
-  background-color: #fff;
-  padding: 10px;
-}
-
-#currentDate {
-  margin-bottom: 20px;
-}
-
-#title {
-  font-size: 24px;
+  padding: 0 2vw;
   font-weight: bold;
 }
 
-#content {
-  line-height: 1.6;
-}
-
-#tag {
-  color: #666;
-}
-
-#write > button {
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  margin-right: 10px;
-}
 #menu {
   padding: 0;
   margin-bottom: 20px;
@@ -223,36 +168,86 @@ aside {
   margin-right: 0;
 }
 
-
-header > div:nth-of-type(2) {
-  display: inline-block;
+form#writeHTML {
+  display: flex;
+  flex-direction: column;
 }
-#bannerdiv {
-  background-image: radial-gradient(
-    circle,
-    #d8dee7,
-    #c0c8d2,
-    #a8b2be,
-    #919daa,
-    #7a8896
-  );
-  box-shadow: -8px 8px 6px 2px rgba(0, 0, 0, 0.32);
-  height: 14vw;
 
-  width: 14vw;
+#write > button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
 }
-*/
+#recordimg {
+  display: none;
+  transform-origin: center;
+}
+
+@media screen and (max-width: 1024px) {
+  #drop {
+    right: 2vw;
+    top: 6vw;
+  }
+}
+
 @media screen and (max-width: 768px) {
-  /* main {
+  main {
     flex-direction: column;
-  } */
-  /* 
-  aside {
-    width: 100%;
-  } */
+    align-items: center;
+    padding-bottom: 2vw;
+  }
 
-  /* #root {
-    width: 100%;
-    margin-top: 20px;
-  } */
+  #write {
+    width: 90%;
+    min-width: unset;
+  }
+
+  header,
+  main {
+    gap: 2vw;
+  }
+
+  header {
+    height: auto;
+    min-height: 100px;
+  }
+
+  #bannerdiv > a {
+    font-size: 7vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header,
+  main {
+    gap: 1vw;
+  }
+
+  header {
+    padding: 5px;
+  }
+
+  #bannerdiv {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  #bannerdiv > a {
+    font-size: 9vw;
+  }
+
+  #htmlList {
+    padding-top: 0.5vw;
+    margin: 2vw 0;
+    height: 15vh;
+    min-height: 100px;
+  }
+
+  #drop {
+    right: 1vw;
+    top: 5vw;
+  }
 }
