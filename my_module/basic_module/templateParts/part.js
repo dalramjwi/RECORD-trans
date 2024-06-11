@@ -7,31 +7,36 @@ const partTemplate = {
    */
   text: function (title, content, tag) {
     return `<div id="currentDate">
-    <div id="title">${title}</div>
-    <div id="content">${content}</div>
-    <div id="tag">${tag}</div>
+    <div id="${title}">${title}</div>
+    <div id="${content}">${content}</div>
+    <div id="${tag}">${tag}</div>
   </div>`;
   },
   /**
    * form으로 감싸져 있는 버튼 리터럴 (2개) 생성 함수
    * @param {string} btn button id
+   * @param {string} textOne button Text One
+   * @param {string} textTwo button Text Two
    */
-  btn: function (btn) {
+  btn: function (btn, textOne, textTwo) {
     return `<div id="${btn}">
     <form action="./su" method="post">
-      <button type="submit" id = "su">수정</button>
+      <button type="submit" id = "su">${textOne}</button>
     </form>
     <form action="./sak" method="post" id = "sakform">
-      <button type="submit" id = "sak">삭제</button>
+      <button type="submit" id = "sak">${textTwo}</button>
     </form>
   </div>`;
   },
   /**
    * list 리터럴로 제작하는 함수
+   * @param {string} listIdOne list ID One (titleSelect)
+   * @param {string} listIdTwo list ID Two (contentSelect)
+   * @param {string} listIdThree list ID Three (tagSelect)
    */
-  menu: function () {
-    return `<div id = "menu"> <li id ="titleSelect"></li>
-  <li id ="contentSelect"></li><li id ="tagSelect"></li></div>
+  menu: function (listIdOne, listIdTwo, listIdThree) {
+    return `<div id = "menu"> <li id ="${listIdOne}"></li>
+  <li id ="${listIdTwo}"></li><li id ="${listIdThree}"></li></div>
  `;
   },
   /**
@@ -74,5 +79,7 @@ const partTemplate = {
     <button type="submit">작성</button>
    </form>`;
   },
+
+  drop: `<ul id = "drop"><li id = "selectmenu">검색 방식&#9663;</li><li id = "titlelist">제목</li><li id ="contentlist">내용</li><li id ="taglist">태그</li></ul>`,
 };
 module.exports = partTemplate;
