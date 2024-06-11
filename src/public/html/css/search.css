@@ -3,6 +3,7 @@
   transform-origin: center;
 }
 * {
+  font-family: "Noto Serif KR", serif;
   list-style: none;
 }
 #contentSelect {

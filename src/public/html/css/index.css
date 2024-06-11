@@ -3,6 +3,7 @@
   transform-origin: center;
 }
 * {
+  font-family: "Noto Serif KR", serif;
   list-style: none;
 }
 #contentSelect {
@@ -53,6 +54,7 @@ body {
 }
 main {
   display: flex;
+  padding-bottom: 5vw;
 }
 #sidebar {
   background-color: pink;
