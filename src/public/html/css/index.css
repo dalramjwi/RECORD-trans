@@ -22,6 +22,7 @@ header {
   padding: 10px;
   box-sizing: border-box;
   min-height: 150px;
+  padding-bottom: 3vw;
 }
 
 #bannerdiv {

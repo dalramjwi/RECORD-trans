@@ -278,3 +278,9 @@ form#writeHTML {
     top: 5vw;
   }
 }
+form {
+  text-align: center;
+}
+body {
+  padding-bottom: 10vw;
+}
